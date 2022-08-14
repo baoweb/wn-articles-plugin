@@ -1,0 +1,5 @@
+columns:
+    name:
+        label: 'baoweb.articles::lang.categories.name'
+        type: text
+        searchable: true

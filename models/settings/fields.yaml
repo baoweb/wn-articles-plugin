@@ -1,0 +1,10 @@
+fields:
+    uses_attachments:
+        span: left
+        label: Přílohy
+        type: switch
+
+    uses_gallery:
+        span: right
+        label: Gallerie
+        type: switch

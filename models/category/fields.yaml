@@ -1,0 +1,16 @@
+fields:
+    name:
+        label: 'baoweb.articles::lang.categories.name'
+        span: auto
+        type: text
+    slug:
+        label: 'baoweb.articles::lang.categories.slug'
+        span: auto
+        preset:
+            field: name
+            type: slug
+        type: text
+    active:
+        label: 'baoweb.articles::lang.categories.active'
+        span: auto
+        type: switch

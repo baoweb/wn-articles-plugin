@@ -1,0 +1,33 @@
+plugin:
+    name: 'baoweb.articles::lang.plugin.name'
+    description: 'baoweb.articles::lang.plugin.description'
+    author: Baoweb
+    icon: wn-icon-file-text
+    replaces: {  }
+permissions:
+    edit-categories:
+        tab: 'baoweb.articles::lang.plugin.name'
+        label: 'baoweb.articles::lang.permissions.canEditCategories'
+    edit-all-articles:
+        tab: 'baoweb.articles::lang.plugin.name'
+        label: 'baoweb.articles::lang.permissions.editCategories'
+    edit-selected-articles:
+        tab: 'baoweb.articles::lang.plugin.name'
+        label: aaa
+    access-articles:
+        tab: 'baoweb.articles::lang.plugin.name'
+        label: bbb
+navigation:
+    articles:
+        label: 'baoweb.articles::lang.plugin.name'
+        url: baoweb/articles/categories
+        icon: icon-edit
+        permissions:
+            - access-articles
+        sideMenu:
+            categories:
+                label: 'baoweb.articles::lang.menu.categories'
+                url: baoweb/articles/categories
+                icon: icon-tags
+                permissions:
+                    - edit-categories

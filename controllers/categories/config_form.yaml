@@ -1,0 +1,10 @@
+name: Categories
+form: $/baoweb/articles/models/category/fields.yaml
+modelClass: Baoweb\Articles\Models\Category
+defaultRedirect: baoweb/articles/categories
+create:
+    redirect: 'baoweb/articles/categories/update/:id'
+    redirectClose: baoweb/articles/categories
+update:
+    redirect: baoweb/articles/categories
+    redirectClose: baoweb/articles/categories
