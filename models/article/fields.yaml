@@ -1,0 +1,31 @@
+fields:
+    title:
+        label: Title
+        span: auto
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+
+tabs:
+    fields:
+        content:
+            label: Content
+            span: full
+            type: richeditor
+            size: mega
+
+secondaryTabs:
+    fields:
+        is_published:
+            label: Published
+            span: full
+            type: switch
+        published_at:
+            label: Published at
+            span: full
+            type: datepicker

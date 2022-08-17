@@ -1,0 +1,22 @@
+columns:
+    title:
+        label: Title
+        type: text
+        searchable: true
+        sortable: true
+    author:
+        label: 'baoweb.articles::lang.articles.author'
+        relation: author
+        sortable: false
+        valueFrom: full_name
+    is_published:
+        label: 'baoweb.articles::lang.articles.is_published'
+        type: partial
+        align: center
+        path: ~/plugins/baoweb/articles/models/article/_is_published_column.htm
+        width: 200px
+        sortable: false
+    published_at:
+        label: 'baoweb.articles::lang.articles.published_at'
+        type: datetime
+        width: 200px

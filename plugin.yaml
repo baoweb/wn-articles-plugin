@@ -20,14 +20,19 @@ permissions:
 navigation:
     articles:
         label: 'baoweb.articles::lang.plugin.name'
-        url: baoweb/articles/categories
+        url: baoweb/articles/articles
         icon: icon-edit
         permissions:
             - access-articles
         sideMenu:
+            articles-side-menu:
+                label: Articles
+                url: baoweb/articles/articles
+                icon: icon-edit
             categories:
                 label: 'baoweb.articles::lang.menu.categories'
                 url: baoweb/articles/categories
                 icon: icon-tags
                 permissions:
                     - edit-categories
+

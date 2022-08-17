@@ -13,7 +13,7 @@ class BuilderTableCreateBaowebArticlesCategories extends Migration
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->string('slug');
-            $table->boolean('active');
+            $table->boolean('is_active')->default(0);
             $table->string('language', 2)->nullable();
             $table->integer('created_by')->nullable()->unsigned();
             $table->string('default_order')->nullable();
@@ -24,7 +24,7 @@ class BuilderTableCreateBaowebArticlesCategories extends Migration
             $table->timestamp('deleted_at')->nullable();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('baoweb_articles_categories');

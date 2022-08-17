@@ -1,0 +1,10 @@
+name: Articles
+form: $/baoweb/articles/models/article/fields.yaml
+modelClass: Baoweb\Articles\Models\Article
+defaultRedirect: baoweb/articles/articles
+create:
+    redirect: 'baoweb/articles/articles/update/:id'
+    redirectClose: baoweb/articles/articles
+update:
+    redirect: baoweb/articles/articles
+    redirectClose: baoweb/articles/articles

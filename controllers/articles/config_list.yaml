@@ -1,0 +1,12 @@
+list: $/baoweb/articles/models/article/columns.yaml
+modelClass: Baoweb\Articles\Models\Article
+title: Articles
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'baoweb/articles/articles/update/:id'

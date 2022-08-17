@@ -13,11 +13,10 @@
         'slug' => 'Slug',
     ],
     'articles' => [
-        'author' => 'Author',
-        'is_published' => 'Published',
-        'published_at' => 'Publish date',
+        'is_published' => 'Publikováno',
+        'published_at' => 'Čas publikování',
     ],
     'menu' => [
-        'categories' => 'Categories',
+        'categories' => 'Kategorie',
     ],
 ];

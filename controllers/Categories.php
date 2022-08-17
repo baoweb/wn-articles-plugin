@@ -19,8 +19,6 @@ class Categories extends Controller
 
         $user = BackendAuth::getUser();
 
-        dd($user->canEditArticleCategory(1));
-
-
+        // dd($user->canEditArticleCategory(1));
     }
 }
