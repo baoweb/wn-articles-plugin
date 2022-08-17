@@ -1,0 +1,19 @@
+partners:
+    name: Large text
+    description: Logos of partners
+    icon: icon-heart
+    fields:
+        content:
+            span: full
+            type: richeditor
+            size: mega
+
+text:
+    name: Small text
+    description: Texts
+    icon: icon-heart
+    fields:
+        content:
+            span: full
+            type: richeditor
+            size: small

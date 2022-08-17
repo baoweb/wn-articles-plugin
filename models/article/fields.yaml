@@ -14,10 +14,11 @@ fields:
 tabs:
     fields:
         content:
-            label: Content
-            span: full
-            type: richeditor
-            size: mega
+            tab: Content
+            type: nestedform
+            usePanelStyles: false
+            showPanel: false
+            form: $/baoweb/articles/forms/with-gallery.yaml
 
 secondaryTabs:
     fields:

@@ -1,0 +1,6 @@
+fields:
+    body_groups:
+        type: repeater
+        prompt: Add new block
+        style: accordion
+        groups: $/baoweb/articles/forms/blocks.yaml

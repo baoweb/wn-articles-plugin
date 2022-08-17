@@ -2,6 +2,7 @@
 
 use Backend\Classes\Controller;
 use BackendMenu;
+use Baoweb\Articles\Classes\TestClass;
 
 class Articles extends Controller
 {
@@ -26,5 +27,14 @@ class Articles extends Controller
         $this->bodyClass = 'compact-container';
 
         return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
+    public function formExtendFields($form, $model)
+    {
+        if($model['title']->value == 'Test') {
+            $formTransformer = new TestClass($form);
+
+            $formTransformer->applyChangesToForm();
+        }
     }
 }

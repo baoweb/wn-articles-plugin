@@ -15,6 +15,8 @@ class Article extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $jsonable = ['content'];
+
     public $belongsTo = [
         'author' => [
             User::class,
