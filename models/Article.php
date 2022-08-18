@@ -38,6 +38,15 @@ class Article extends Model
         ]
     ];
 
+    public $attachMany = [
+        'galleryPhotos' => 'System\Models\File',
+        'attachments' => 'System\Models\File',
+    ];
+
+    public $attachOne = [
+        'coverImage' => 'System\Models\File',
+    ];
+
     /**
      * @var string The database table used by the model.
      */
@@ -64,7 +73,7 @@ class Article extends Model
                 return;
             }
 
-            if($user->hasAccess('baoweb.articles.edit-all-articles')) {
+            if(isset($user->role->permissions['edit-all-articles']) && $user->role->permissions['edit-all-articles']) {
                 return;
             }
 

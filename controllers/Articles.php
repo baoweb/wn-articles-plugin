@@ -3,6 +3,7 @@
 use Backend\Classes\Controller;
 use BackendMenu;
 use Baoweb\Articles\Classes\TestClass;
+use Baoweb\Articles\Models\Settings;
 
 class Articles extends Controller
 {
@@ -31,10 +32,29 @@ class Articles extends Controller
 
     public function formExtendFields($form, $model)
     {
+        if(!Settings::get('uses_attachments', true)) {
+            $this->removeTabGroup('attachments', $form);
+        }
+
+        if(!Settings::get('uses_gallery', true)) {
+            $this->removeTabGroup('gallery', $form);
+        }
+
+
         if($model['title']->value == 'Test') {
             $formTransformer = new TestClass($form);
 
             $formTransformer->applyChangesToForm();
         }
+    }
+
+    protected function removeTabGroup($tab, $form)
+    {
+
+        foreach($form->tabs['fields'] as $key => $field) {
+            if(starts_with($key, $tab)) {
+                $form->removeField($key);
+            }
+        };
     }
 }

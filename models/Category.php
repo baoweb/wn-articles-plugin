@@ -38,7 +38,7 @@ class Category extends Model
                 return;
             }
 
-            if($user->hasAccess('baoweb.articles.edit-all-articles')) {
+            if(isset($user->role->permissions['edit-all-articles']) && $user->role->permissions['edit-all-articles']) {
                 return;
             }
 

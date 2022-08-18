@@ -24,6 +24,47 @@ tabs:
             showPanel: false
             form: $/baoweb/articles/forms/with-gallery.yaml
 
+        gallery_section:
+            tab: Gallery
+            label: Gallery
+            type: section
+            comment: Here, you can attach images that will be displayed in the gallery.
+        gallery_hint:
+            tab: Gallery
+            type: hint
+            path: $/baoweb/articles/models/article/_gallery_hint.htm
+        galleryPhotos:
+            tab: Gallery
+            label: ""
+            type: fileupload
+            mode: image
+            imageHeight: 300
+            imageWidth: 300
+            thumbOptions:
+                mode: crop
+                offset:
+                    - 0
+                    - 0
+                quality: 90
+                sharpen: 0
+                interlace: false
+                extension: auto
+
+        attachments_section:
+            tab: Attachments
+            label: Gallery
+            type: section
+            comment: Here, you can attach images that will be displayed in the gallery.
+        attachments_hint:
+            tab: Attachments
+            type: hint
+            path: $/baoweb/articles/models/article/_attachments_hint.htm
+        attachments:
+            tab: Attachments
+            label: ""
+            type: fileupload
+            mode: file
+
 secondaryTabs:
     fields:
         is_published:
