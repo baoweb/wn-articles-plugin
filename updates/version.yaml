@@ -9,3 +9,6 @@
 1.0.4:
     - 'Create table users_categories'
     - create_baoweb_articles_users_categories.php
+1.0.5:
+    - 'Create table articles_categories'
+    - create_baoweb_articles_articles_categories.php
