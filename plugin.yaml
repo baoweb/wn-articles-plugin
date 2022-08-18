@@ -10,13 +10,16 @@ permissions:
         label: 'baoweb.articles::lang.permissions.canEditCategories'
     edit-all-articles:
         tab: 'baoweb.articles::lang.plugin.name'
-        label: 'baoweb.articles::lang.permissions.editCategories'
+        label: 'baoweb.articles::lang.permissions.editAllCategories'
     edit-selected-articles:
         tab: 'baoweb.articles::lang.plugin.name'
-        label: aaa
+        label: 'baoweb.articles::lang.plugin.editOnlySelectedArticles'
     access-articles:
         tab: 'baoweb.articles::lang.plugin.name'
-        label: bbb
+        label: 'baoweb.articles::lang.plugin.accessArticles'
+    assign-rights:
+        tab: 'baoweb.articles::lang.plugin.name'
+        label: 'baoweb.articles::lang.permissions.assign_rights'
 navigation:
     articles:
         label: 'baoweb.articles::lang.plugin.name'
@@ -35,4 +38,10 @@ navigation:
                 icon: icon-tags
                 permissions:
                     - edit-categories
+            user-rights:
+                label: 'baoweb.articles::lang.menu.user_rights'
+                url: baoweb/articles/users
+                icon: icon-users
+                permissions:
+                    - assign-rights
 

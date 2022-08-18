@@ -1,0 +1,18 @@
+columns:
+    last_name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: trues
+    first_name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    number_of_categories:
+        label: Categories
+        type: partial
+        path: ~/plugins/baoweb/articles/controllers/users/_number_of_categories_column.htm
+        width: 50%
+        sortable: false
+

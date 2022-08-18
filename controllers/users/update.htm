@@ -1,0 +1,37 @@
+<?php Block::put('breadcrumb') ?>
+<ul>
+    <ul>
+        <li><a href="http://winter.test/backend/baoweb/articles/users">User Rights</a></li>
+        <li><?= $user->fullName ?></li>
+    </ul>
+</ul>
+<?php Block::endPut() ?>
+
+<form action="/backend/baoweb/articles/users/save/<?= $user->id ?>" method="post">
+    <?= Form::token() ?>
+<div class="layout-row">
+
+    <div class="form-group checkboxlist-field">
+            <div class="field-checkboxlist-container">
+                <p class="help-block before-field">Which cantegory has <?= $user->fullName ?> access to?</p>
+                <?php foreach($categories as $category): ?>
+                <div class="checkbox custom-checkbox" tabindex="0">
+                    <input id="category<?= $category->id ?>" type="checkbox" name="categories[<?= $category->id ?>]" value="<?= $category->id ?>" <?php if($user->baowebArticleCategories->where('id', $category->id)->count()): ?>checked="checked" aria-checked="true"<?php endif ?> />
+                    <label for="category<?= $category->id ?>"><?= $category->name ?></label>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-buttons">
+    <div class="loading-indicator-container">
+        <button type="submit" class="btn btn-primary"><?= e(trans('backend::lang.form.save')) ?></button>
+        <span class="btn-text">
+            <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('baoweb/articles/users') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+        </span>
+    </div>
+</div>
+<?= Form::close() ?>

@@ -10,7 +10,7 @@ fields:
             field: name
             type: slug
         type: text
-    active:
+    is_active:
         label: 'baoweb.articles::lang.categories.active'
         span: auto
         type: switch

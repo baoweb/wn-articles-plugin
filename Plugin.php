@@ -1,6 +1,7 @@
 <?php namespace Baoweb\Articles;
 
 use Backend\Models\User as UserModel;
+use Baoweb\Articles\Models\Category;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
@@ -17,6 +18,15 @@ class Plugin extends PluginBase
 
                 return false;
             });
+        });
+
+        UserModel::extend(function($model){
+            $model->belongsToMany['baowebArticleCategories'] = [
+                Category::class,
+                'table'    => 'baoweb_articles_users_categories',
+                'key'      => 'user_id',
+                'otherKey' => 'category_id'
+            ];
         });
 
         /** Adding function that allows to check access to an article */

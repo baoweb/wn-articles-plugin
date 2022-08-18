@@ -6,3 +6,6 @@
 1.0.3:
     - 'Created table baoweb_articles_articles'
     - builder_table_create_baoweb_articles_articles.php
+1.0.4:
+    - 'Create table users_categories'
+    - create_baoweb_articles_users_categories.php
