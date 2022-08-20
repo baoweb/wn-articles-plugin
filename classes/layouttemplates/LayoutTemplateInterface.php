@@ -1,5 +1,4 @@
-<?php namespace Baoweb\Articles\Classes\LayoutTemplates
-;
+<?php namespace Baoweb\Articles\Classes\LayoutTemplates;
 
 interface LayoutTemplateInterface
 {
