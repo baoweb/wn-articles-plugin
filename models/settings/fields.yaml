@@ -1,10 +1,20 @@
 fields:
+    settings_title:
+        label: Settings for the Articles plugin
+        type: section
+        comment: Some of the settings bellow can be overridden by creating specific layout. See the documentation.
+    settings_hint:
+        type: hint
+        path: $/baoweb/articles/models/settings/_main_hint.htm
+
     uses_attachments:
-        span: left
-        label: Přílohy
+        span: full
+        label: Attachments
+        comment: Articles can have attachments
         type: switch
 
     uses_gallery:
-        span: right
-        label: Gallerie
+        span: full
+        label: Galleries
+        comment: Articles can have galleries
         type: switch

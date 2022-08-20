@@ -28,6 +28,15 @@ class Category extends Model
     public $rules = [
     ];
 
+    public $belongsToMany = [
+        'articles' => [
+            Article::class,
+            'table'    => 'baoweb_articles_articles_categories',
+            'key'      => 'category_id',
+            'otherKey' => 'article_id'
+        ]
+    ];
+
     protected static function booted()
     {
         static::addGlobalScope('onlyAllowed', function (Builder $builder) {

@@ -11,18 +11,56 @@ fields:
             type: slug
         type: text
     categories:
+        label: Categories
+        span: auto
         type: taglist
         customTags: false
         mode: relation
+    template@update:
+        label: Template
+        span: auto
+        type: dropdown
+        default: published
+        disabled: true
+        emptyOption: '- select template -'
+    template@create:
+        label: Template
+        span: auto
+        type: dropdown
+        default: published
+        emptyOption: '- select template -'
+    long_title:
+        label: Long title
+        comment: Will be used in article detail
+        span: full
+        type: text
+        trigger:
+            action: show
+            field: has_long_title
+            condition: checked
 
 tabs:
     fields:
+        content_section:
+            tab: Content
+            type: section
+            label: Article content
+            hidden: true
+
         content:
             tab: Content
             type: nestedform
             usePanelStyles: false
             showPanel: false
-            form: $/baoweb/articles/forms/with-gallery.yaml
+            form: $/baoweb/articles/forms/basic.yaml
+
+        annotation:
+            tab: Annotation
+            label: Annotation
+            description: This field will be displayed in lists of articles.
+            toolbarButtons: bold|italic
+            type: richeditor
+            size: large
 
         gallery_section:
             tab: Gallery
@@ -67,11 +105,48 @@ tabs:
 
 secondaryTabs:
     fields:
+        sidebar_Section:
+            label: Article settings
+            type: section
+
+        coverImage:
+            label: "Cover image"
+            type: fileupload
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
+            thumbOptions:
+                mode: crop
+                offset:
+                    - 0
+                    - 0
+                quality: 90
+                sharpen: 0
+                interlace: false
+                extension: auto
+
+        is_featured:
+            label: Featured
+            comment: Display first in lists
+            span: full
+            type: switch
+        has_long_title:
+            label: Has long title
+            comment: Use long title for detail
+            span: full
+            type: switch
         is_published:
             label: Published
+            comment: Display on frontend
             span: full
             type: switch
         published_at:
             label: Published at
             span: full
             type: datepicker
+        author:
+            label: Author
+            span: full
+            nameFrom: fullName
+            type: relation
+            disabled: true

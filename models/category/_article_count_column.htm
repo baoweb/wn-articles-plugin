@@ -1,0 +1,17 @@
+<span class="list-badge badge-info">
+    <?php echo $record
+        ->articles()
+        ->where('is_published', true)
+        ->count();
+    ?>
+</span>
+published
+
+<span class="m-l-md list-badge badge-warning">
+    <?php echo $record
+        ->articles()
+        ->where('is_published', false)
+        ->count();
+    ?>
+</span>
+not published

@@ -1,11 +1,26 @@
 <?php namespace Baoweb\Articles;
 
+use App;
 use Backend\Models\User as UserModel;
+use Baoweb\Articles\Classes\LayoutRegistry;
+use Baoweb\Articles\Classes\LayoutTemplates\AdvancedLayoutClass;
+use Baoweb\Articles\Classes\LayoutTemplates\BasicLayoutClass;
 use Baoweb\Articles\Models\Category;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
 {
+    public function register()
+    {
+        App::singleton('baoweb.articles.layoutTemplates', function() {
+            return new LayoutRegistry();
+        });
+
+        App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new BasicLayoutClass());
+
+        App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new AdvancedLayoutClass());
+    }
+
     public function boot()
     {
         /** Adding function that allows to check access to category */

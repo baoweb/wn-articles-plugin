@@ -3,3 +3,17 @@ columns:
         label: 'baoweb.articles::lang.categories.name'
         type: text
         searchable: true
+    article_count:
+        label: Articles
+        type: partial
+        align: left
+        path: ~/plugins/baoweb/articles/models/category/_article_count_column.htm
+        width: 500px
+        sortable: false
+    is_published:
+        label: Active
+        type: partial
+        align: center
+        path: ~/plugins/baoweb/articles/models/category/_is_active_column.htm
+        width: 200px
+        sortable: false

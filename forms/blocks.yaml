@@ -1,19 +1,32 @@
 partners:
     name: Large text
-    description: Logos of partners
-    icon: icon-heart
+    description: Large block of text
+    icon: icon-file-text-o
     fields:
         content:
+            label: Text content
             span: full
             type: richeditor
             size: mega
 
 text:
     name: Small text
-    description: Texts
-    icon: icon-heart
+    description: Large block of text
+    icon: icon-file-text-o
     fields:
         content:
+            label: Text content
             span: full
             type: richeditor
             size: small
+
+gallery:
+    name: Gallery
+    description: Placeholder for article's gallery
+    icon: icon-camera-retro
+    fields:
+        gallery:
+            span: full
+            type: partial
+            path: ~/plugins/baoweb/articles/forms/partials/_gallery_field.htm
+

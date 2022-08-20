@@ -1,0 +1,23 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    categories:
+        # Filter name
+        label: Categories
+        # Model Class name
+        modelClass: Baoweb\Articles\Models\Category
+        # Model attribute to display for the name
+        nameFrom: name
+        # Filter scope
+        scope: filterByCategory
+
+    is_published:
+        label: Published
+        type: switch
+        default: 0
+        conditions:
+            - is_published <> true
+            - is_published = true

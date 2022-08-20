@@ -18,6 +18,14 @@ class Article extends Model
 
     use \Winter\Storm\Database\Traits\SoftDelete;
 
+    public $implement = ['Winter.Translate.Behaviors.TranslatableModel'];
+
+    public $translatable = [
+        'title',
+        'annotation',
+        'content',
+    ];
+
     protected $dates = ['deleted_at'];
 
     protected $jsonable = ['content'];
@@ -85,6 +93,19 @@ class Article extends Model
                 $query->whereIn('baoweb_articles_categories.id', $categories);
             });
         });
+    }
+
+    public function scopeFilterByCategory($query, $filter)
+    {
+        return $query->whereHas('categories', function($category) use ($filter) {
+            $category->whereIn('baoweb_articles_articles_categories.id', $filter);
+        });
+    }
+
+    public function getTemplateOptions($value, $formData)
+    {
+
+        return App::make('baoweb.articles.layoutTemplates')->getLayoutTemplateNames();
     }
 
     /*

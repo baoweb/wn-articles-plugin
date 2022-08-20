@@ -1,7 +1,9 @@
 <?php namespace Baoweb\Articles\Controllers;
 
+use App;
 use Backend\Classes\Controller;
 use BackendMenu;
+use Baoweb\Articles\Classes\LayoutRegistry;
 use Baoweb\Articles\Classes\TestClass;
 use Baoweb\Articles\Models\Settings;
 
@@ -32,6 +34,9 @@ class Articles extends Controller
 
     public function formExtendFields($form, $model)
     {
+        /** @var $templateRegistry LayoutRegistry */
+        $templateRegistry = App::make('baoweb.articles.layoutTemplates');
+
         if(!Settings::get('uses_attachments', true)) {
             $this->removeTabGroup('attachments', $form);
         }
@@ -41,10 +46,14 @@ class Articles extends Controller
         }
 
 
-        if($model['title']->value == 'Test') {
-            $formTransformer = new TestClass($form);
+        foreach($templateRegistry->getLayoutTemplateClasses() as $key => $templateClassName) {
+            if($model['template']->value == $key) {
+                $templateClass = new $templateClassName;
 
-            $formTransformer->applyChangesToForm();
+                $templateClass->applyChangesToForm($form);
+
+                break;
+            }
         }
     }
 

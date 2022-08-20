@@ -11,6 +11,6 @@ fields:
             type: slug
         type: text
     is_active:
-        label: 'baoweb.articles::lang.categories.active'
+        label: Active
         span: auto
         type: switch
