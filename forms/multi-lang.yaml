@@ -1,0 +1,31 @@
+fields:
+    annotation_cz:
+        label: Annotation (Czech)
+        span: full
+        type: richeditor
+        size: small
+        toolbarButtons: bold|italic
+    content_cz:
+        label: Content (Czech)
+        span: full
+        type: richeditor
+        size: mega
+    section_en:
+        label: English translation
+        type: section
+    title_en:
+        label: Title (English)
+        span: full
+        type: text
+        size: mega
+    annotation_en:
+        label: Annotation  (English)
+        span: full
+        type: richeditor
+        size: small
+        toolbarButtons: bold|italic
+    content_en:
+        label: Content (English)
+        span: full
+        type: richeditor
+        size: mega

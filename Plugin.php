@@ -5,6 +5,7 @@ use Backend\Models\User as UserModel;
 use Baoweb\Articles\Classes\LayoutRegistry;
 use Baoweb\Articles\Classes\LayoutTemplates\AdvancedLayoutClass;
 use Baoweb\Articles\Classes\LayoutTemplates\BasicLayoutClass;
+use Baoweb\Articles\Classes\LayoutTemplates\MultiLanguageLayoutClass;
 use Baoweb\Articles\Models\Category;
 use System\Classes\PluginBase;
 
@@ -17,6 +18,8 @@ class Plugin extends PluginBase
         });
 
         App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new BasicLayoutClass());
+
+        App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new MultiLanguageLayoutClass());
 
         App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new AdvancedLayoutClass());
     }
@@ -60,7 +63,7 @@ class Plugin extends PluginBase
                 'category'    => 'Articles',
                 'description' => 'baoweb.articles::lang.plugin.name',
                 'class'       => 'Baoweb\Articles\Models\Settings',
-                'permissions' => [],
+                'permissions' => ['assign-rights'],
                 'order'       => 600
             ]
         ];

@@ -30,3 +30,12 @@ gallery:
             type: partial
             path: ~/plugins/baoweb/articles/forms/partials/_gallery_field.htm
 
+documents:
+    name: Attached documents
+    description: Placeholder for the attached documents
+    icon: icon-list
+    fields:
+        gallery:
+            span: full
+            type: partial
+            path: ~/plugins/baoweb/articles/forms/partials/_documents_field.htm
