@@ -18,7 +18,7 @@ class Article extends Model
 
     use \Winter\Storm\Database\Traits\SoftDelete;
 
-    public $implement = ['Winter.Translate.Behaviors.TranslatableModel'];
+    public $implement = ['@Winter.Translate.Behaviors.TranslatableModel'];
 
     public $translatable = [
         'title',
