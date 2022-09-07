@@ -16,7 +16,7 @@ permissions:
         label: 'baoweb.articles::lang.permissions.editOnlySelectedArticles'
     edit-categories:
         tab: 'baoweb.articles::lang.plugin.name'
-        label: 'baoweb.articles::lang.permissions.canEditCategories'
+        label: 'baoweb.articles::lang.permissions.editCategories'
     assign-rights:
         tab: 'baoweb.articles::lang.plugin.name'
         label: 'baoweb.articles::lang.permissions.assign_rights'
