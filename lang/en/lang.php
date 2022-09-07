@@ -4,9 +4,10 @@
         'description' => '',
     ],
     'permissions' => [
+        'accessArticles' => 'Access articles',
         'editCategories' => 'Can edit categories',
-        'canEditCategories' => 'Can edit categories',
-        'canEditAllArticles' => 'Can edit all articles',
+        'editAllCategories' => 'Has access all articles',
+        'editOnlySelectedArticles' => 'Can edit articles in selected categories',
         'assign_rights' => 'Assign user access tp categories',
     ],
     'categories' => [
