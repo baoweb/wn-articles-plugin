@@ -5,18 +5,18 @@ plugin:
     icon: wn-icon-file-text
     replaces: {  }
 permissions:
-    edit-categories:
+    access-articles:
         tab: 'baoweb.articles::lang.plugin.name'
-        label: 'baoweb.articles::lang.permissions.canEditCategories'
+        label: 'baoweb.articles::lang.permissions.accessArticles'
     edit-all-articles:
         tab: 'baoweb.articles::lang.plugin.name'
         label: 'baoweb.articles::lang.permissions.editAllCategories'
     edit-selected-articles:
         tab: 'baoweb.articles::lang.plugin.name'
-        label: 'baoweb.articles::lang.plugin.editOnlySelectedArticles'
-    access-articles:
+        label: 'baoweb.articles::lang.permissions.editOnlySelectedArticles'
+    edit-categories:
         tab: 'baoweb.articles::lang.plugin.name'
-        label: 'baoweb.articles::lang.plugin.accessArticles'
+        label: 'baoweb.articles::lang.permissions.canEditCategories'
     assign-rights:
         tab: 'baoweb.articles::lang.plugin.name'
         label: 'baoweb.articles::lang.permissions.assign_rights'
