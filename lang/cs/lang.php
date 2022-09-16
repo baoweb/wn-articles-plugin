@@ -4,11 +4,12 @@
         'description' => '',
     ],
     'permissions' => [
-        'accessArticles' => 'Access articles',
-        'editCategories' => 'Can edit categories',
-        'editAllCategories' => 'Has access all articles',
-        'editOnlySelectedArticles' => 'Can edit articles in selected categories',
-        'assign_rights' => 'Assign user access tp categories',
+        'accessArticles' => 'Přístup pluginu článků',
+        'editCategories' => 'Může spravovat kategorie',
+        'editAllCategories' => 'Editace všech článků',
+        'editOnlySelectedArticles' => 'Editace článků pouze ve vybraných kategoriích',
+        'assign_rights' => 'Správa přístupu editorů ke kategoriím',
+        'edit_author' => 'Úprava autora u článků',
     ],
     'categories' => [
         'name' => 'Name',

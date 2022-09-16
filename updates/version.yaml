@@ -12,3 +12,6 @@
 1.0.5:
     - 'Create table articles_categories'
     - create_baoweb_articles_articles_categories.php
+1.0.6:
+    - 'Updated table baoweb_articles_articles'
+    - builder_table_update_baoweb_articles_articles.php

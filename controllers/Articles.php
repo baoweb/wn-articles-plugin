@@ -14,8 +14,22 @@ class Articles extends Controller
         'Backend\Behaviors\FormController'
     ];
 
-    public $listConfig = 'config_list.yaml';
-    public $formConfig = 'config_form.yaml';
+    public $listConfig = [
+        'articles' => 'config_list.yaml',
+        'templates' => 'config_list.yaml',
+    ];
+
+    public function listExtendQuery($query, $definition)
+    {
+
+        if ($definition === 'articles') {
+            $query->where('is_template', false);
+        }
+
+        if ($definition === 'templates') {
+            $query->where('is_template', true);
+        }
+    }
 
     public function __construct()
     {

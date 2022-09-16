@@ -17,6 +17,9 @@ permissions:
     edit-categories:
         tab: 'baoweb.articles::lang.plugin.name'
         label: 'baoweb.articles::lang.permissions.editCategories'
+    edit-author:
+        tab: 'baoweb.articles::lang.plugin.name'
+        label: 'baoweb.articles::lang.permissions.edit_author'
     assign-rights:
         tab: 'baoweb.articles::lang.plugin.name'
         label: 'baoweb.articles::lang.permissions.assign_rights'
@@ -32,6 +35,10 @@ navigation:
                 label: Articles
                 url: baoweb/articles/articles
                 icon: icon-edit
+            templates-side-menu:
+                label: Templates
+                url: baoweb/articles/articles?templates=1
+                icon: icon-file
             categories:
                 label: 'baoweb.articles::lang.menu.categories'
                 url: baoweb/articles/categories

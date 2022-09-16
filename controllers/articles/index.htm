@@ -1,1 +1,5 @@
-<?= $this->listRender() ?>
+<?php if(get('templates') == true): ?>
+<?= $this->listRender('templates') ?>
+<?php else: ?>
+<?= $this->listRender('artciles') ?>
+<?php endif; ?>

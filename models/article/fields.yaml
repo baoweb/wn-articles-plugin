@@ -150,3 +150,30 @@ secondaryTabs:
             nameFrom: fullName
             type: relation
             disabled: true
+        is_scheduled:
+            label: Scheduled publishing
+            comment: Publish and unpublish dates
+            span: full
+            type: switch
+        publish_at:
+            label: Publish at
+            span: full
+            type: datepicker
+            trigger:
+                action: show
+                field: is_scheduled
+                condition: checked
+        unpublish_at:
+            label: Unpublish at
+            span: full
+            type: datepicker
+            trigger:
+                action: show
+                field: is_scheduled
+                condition: checked
+
+        is_template:
+            label: Template document
+            comment: Presets for others
+            span: full
+            type: switch

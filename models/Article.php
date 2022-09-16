@@ -3,6 +3,7 @@
 use App;
 use Backend\Models\User;
 use Baoweb\Articles\Controllers\Categories;
+use Carbon\Carbon;
 use http\Client\Request;
 use Model;
 use Backend\Facades\BackendAuth;
@@ -26,7 +27,12 @@ class Article extends Model
         'content',
     ];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at',
+        'published_at',
+        'publish_at',
+        'unpublish_at',
+    ];
 
     protected $jsonable = ['content'];
 
@@ -69,6 +75,18 @@ class Article extends Model
     public function beforeCreate()
     {
         $this->created_by = BackendAuth::getUser()->id;
+    }
+
+    public function beforeSave()
+    {
+        if(!$this->published_at && $this->is_published) {
+            $this->published_at = Carbon::now();
+        }
+
+        if(!$this->is_scheduled) {
+            $this->publish_at = null;
+            $this->unpublish_at = null;
+        }
     }
 
     protected static function booted()
@@ -128,6 +146,21 @@ class Article extends Model
         }
     }
     */
+
+    public function filterFields($fields, $context = null)
+    {
+        if (!isset($fields->author)) {
+            return;
+        }
+
+        $user = BackendAuth::getUser();
+
+        if (!$user->hasAccess(['baoweb.articles.edit-author'])) {
+            $fields->author->disabled = true;
+        } else {
+            $fields->author->disabled = false;
+        }
+    }
 
 
 }

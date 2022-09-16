@@ -8,7 +8,8 @@
         'editCategories' => 'Can edit categories',
         'editAllCategories' => 'Has access all articles',
         'editOnlySelectedArticles' => 'Can edit articles in selected categories',
-        'assign_rights' => 'Assign user access tp categories',
+        'assign_rights' => 'Assign user access to categories',
+        'edit_author' => 'Change article\'s author',
     ],
     'categories' => [
         'name' => 'Name',
