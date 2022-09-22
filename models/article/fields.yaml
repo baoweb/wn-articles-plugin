@@ -38,6 +38,13 @@ fields:
             action: show
             field: has_long_title
             condition: checked
+    annotation:
+        # tab: Annotation
+        label: Annotation
+        description: This field will be displayed in lists of articles.
+        toolbarButtons: bold|italic
+        type: richeditor
+        size: small
 
 tabs:
     fields:
@@ -54,13 +61,13 @@ tabs:
             showPanel: false
             form: $/baoweb/articles/forms/basic.yaml
 
-        annotation:
-            tab: Annotation
-            label: Annotation
-            description: This field will be displayed in lists of articles.
-            toolbarButtons: bold|italic
-            type: richeditor
-            size: large
+        # annotation:
+        #    tab: Annotation
+        #    label: Annotation
+        #    description: This field will be displayed in lists of articles.
+        #    toolbarButtons: bold|italic
+        #    type: richeditor
+        #    size: large
 
         gallery_section:
             tab: Gallery

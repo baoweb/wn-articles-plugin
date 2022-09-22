@@ -25,6 +25,7 @@ class Article extends Model
         'title',
         'annotation',
         'content',
+        'slug',
     ];
 
     protected $dates = [
