@@ -1,0 +1,48 @@
+<h2>Vyberte šablonu</h2>
+<style>
+    .template {
+        background-color: #e0e0e0;
+        border: 1px solid #e0e0e0;
+        border-radius: 1rem;
+        width: 12rem;
+        height: 12rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4em;
+    }
+
+    .template:hover {
+        background-color: #f9f9f9;
+    }
+
+    .template-link-name {
+        margin-top: 0.5em;
+        max-width: 8em;
+        color: #444;
+        text-decoration: none !important;
+    }
+
+    .template-link:hover {
+        text-decoration: none !important;
+        color: black;
+    }
+
+</style>
+
+<div style="display: flex; gap: 1em; flex-wrap: wrap; margin-top: 2em;">
+
+<?php foreach($templates as $template): ?>
+<a href="<?= Backend::url('baoweb/articles/articles/create-from-template/' . $template->id) ?>" style="display: block; text-align:center;" class="template-link">
+    <div class="template">
+        <i class="oc-icon-file" style="position: relative; left: 4px; color: #34495e"></i>
+    </div>
+    <div class="template-link-name">
+        <?= $template->title ?>
+    </div>
+</a>
+
+<?php endforeach; ?>
+
+</div>

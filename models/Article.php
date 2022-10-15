@@ -148,6 +148,11 @@ class Article extends Model
     }
     */
 
+    public function scopeTemplates($query)
+    {
+        $query->where('is_template', true);
+    }
+
     public function filterFields($fields, $context = null)
     {
         if (!isset($fields->author)) {

@@ -37,7 +37,7 @@ navigation:
                 icon: icon-edit
             templates-side-menu:
                 label: Templates
-                url: baoweb/articles/articles?templates=1
+                url: baoweb/articles/templates
                 icon: icon-file
             categories:
                 label: 'baoweb.articles::lang.menu.categories'
@@ -51,4 +51,3 @@ navigation:
                 icon: icon-users
                 permissions:
                     - assign-rights
-
