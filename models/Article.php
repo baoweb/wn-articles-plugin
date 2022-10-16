@@ -168,5 +168,8 @@ class Article extends Model
         }
     }
 
-
+    public function publishedAtForHumans()
+    {
+        return 'datum';
+    }
 }
