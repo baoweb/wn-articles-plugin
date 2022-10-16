@@ -172,4 +172,9 @@ class Article extends Model
     {
         return 'datum';
     }
+
+    public function getCategoryListingOptions()
+    {
+        return Category::pluck('name', 'id');
+    }
 }
