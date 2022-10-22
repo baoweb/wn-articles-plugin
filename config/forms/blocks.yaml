@@ -1,4 +1,4 @@
-partners:
+large_text:
     name: Large text
     description: Large block of text
     icon: icon-file-text-o
@@ -9,7 +9,7 @@ partners:
             type: richeditor
             size: mega
 
-text:
+small_text:
     name: Small text
     description: Large block of text
     icon: icon-file-text-o
@@ -28,7 +28,7 @@ gallery:
         gallery:
             span: full
             type: partial
-            path: ~/plugins/baoweb/articles/forms/partials/_gallery_field.htm
+            path: ~/plugins/baoweb/articles/config/forms/partials/_gallery_field.htm
 
 documents:
     name: Attached documents
@@ -38,7 +38,7 @@ documents:
         gallery:
             span: full
             type: partial
-            path: ~/plugins/baoweb/articles/forms/partials/_documents_field.htm
+            path: ~/plugins/baoweb/articles/config/forms/partials/_documents_field.htm
 
 category:
     name: Article list

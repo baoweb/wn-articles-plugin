@@ -1,6 +1,8 @@
 <?php namespace Baoweb\Articles\Classes\LayoutTemplates
 ;
 
+use Baoweb\Articles\Models\Article;
+
 class MultiLanguageLayoutClass implements LayoutTemplateInterface {
 
     public function getName(): string
@@ -25,9 +27,14 @@ class MultiLanguageLayoutClass implements LayoutTemplateInterface {
                 'type' =>  'nestedform',
                 'usePanelStyles' =>  false,
                 'showPanel' =>  false,
-                'form' =>  '$/baoweb/articles/forms/multi-lang.yaml',
+                'form' =>  '$/baoweb/articles/config/forms/multi-lang.yaml',
             ],
         ]);
 
+    }
+
+    public function getRenderedArticle(Article $article): string
+    {
+        // TODO: Implement getRenderedArticle() method.
     }
 }

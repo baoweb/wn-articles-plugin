@@ -1,5 +1,7 @@
 <?php namespace Baoweb\Articles\Classes\LayoutTemplates;
 
+use Baoweb\Articles\Models\Article;
+
 class BasicLayoutClass implements LayoutTemplateInterface {
 
     public function getName(): string
@@ -13,4 +15,9 @@ class BasicLayoutClass implements LayoutTemplateInterface {
     }
 
     public function applyChangesToForm($form): void {}
+
+    public function getRenderedArticle(Article $article): string
+    {
+        // TODO: Implement getRenderedArticle() method.
+    }
 }

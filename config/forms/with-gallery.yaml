@@ -3,4 +3,4 @@ fields:
         type: repeater
         prompt: Add new block
         style: default
-        groups: $/baoweb/articles/forms/blocks.yaml
+        groups: $/baoweb/articles/config/forms/blocks.yaml

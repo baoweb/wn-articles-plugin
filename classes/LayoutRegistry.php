@@ -25,4 +25,15 @@ class LayoutRegistry {
         return $this->layouts;
     }
 
+    public function getLayoutInstance($key)
+    {
+        $layoutInstance = $this->layouts[$key];
+
+        if(!$layoutInstance) {
+            dd('Missing layout class.');
+        }
+
+        return  new $layoutInstance();
+    }
+
 }

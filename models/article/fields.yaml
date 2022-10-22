@@ -157,6 +157,12 @@ secondaryTabs:
             nameFrom: fullName
             type: relation
             disabled: true
+        custom_author:
+            label: Author - custom
+            comment: This field will override the author above. Leave empty if not needed.
+            span: full
+            type: text
+
         is_scheduled:
             label: Scheduled publishing
             comment: Publish and unpublish dates
@@ -184,3 +190,11 @@ secondaryTabs:
             comment: Presets for others
             span: full
             type: switch
+
+        preview_section:
+            label: Preview
+            type: section
+
+        preview_button:
+            type: partial
+            path: $/baoweb/articles/models/article/_preview_field.htm

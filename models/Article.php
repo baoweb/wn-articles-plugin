@@ -163,14 +163,33 @@ class Article extends Model
 
         if (!$user->hasAccess(['baoweb.articles.edit-author'])) {
             $fields->author->disabled = true;
+
+            $fields->custom_author->hidden = true;
         } else {
             $fields->author->disabled = false;
         }
     }
 
+    public function getAuthor()
+    {
+        if($this->custom_author) {
+            return $this->custom_author;
+        }
+
+        return $this->author->first_name . ' ' . $this->author->last_name;
+    }
+
     public function publishedAtForHumans()
     {
-        return 'datum';
+        if($this->published_at) {
+            return $this->published_at?->format(config('baoweb.articles::date_format'));
+        }
+
+        if( $this->publish_at && $this->publish_at?->lt(Carbon::now()) ) {
+            return $this->publish_at?->format(config('baoweb.articles::date_format'));
+        }
+
+        return false;
     }
 
     public function getCategoryListingOptions()

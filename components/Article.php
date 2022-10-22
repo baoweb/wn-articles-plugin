@@ -1,5 +1,7 @@
 <?php namespace Baoweb\Articles\Components;
 
+use App;
+use Baoweb\Articles\Classes\LayoutTemplates\LayoutTemplateInterface;
 use Cms\Classes\ComponentBase;
 use \Baoweb\Articles\Models\Article as ArticleModel;
 use Illuminate\Support\Facades\Response;
@@ -35,17 +37,23 @@ class Article extends ComponentBase
     {
         $slug = $this->param('slug');
 
-        $this->article = ArticleModel::where(['slug' => $slug])->first();
+        $this->article = ArticleModel::with(['attachments'])
+            ->where(['slug' => $slug])->first();
 
         if(!$this->article) {
             return $this->controller->run('404');
         }
 
         $this->page->title = $this->article->title;
-        $this->page->author = 'Martin Kryl';
+        $this->page->author =  $this->article->getAuthor();
         $this->page->published_at = $this->article->publishedAtForHumans();
 
-        $this->content = $this->article->content['content'];
+        /* @var $layoutClass LayoutTemplateInterface */
+        $layoutClass = App::make('baoweb.articles.layoutTemplates')->getLayoutInstance($this->article->template);
+
+        $text = $layoutClass->getRenderedArticle($this->article);
+
+        $this->content = $text;
     }
 
     public function onRun()
