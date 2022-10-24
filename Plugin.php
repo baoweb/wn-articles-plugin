@@ -7,6 +7,7 @@ use Baoweb\Articles\Classes\LayoutTemplates\AdvancedLayoutClass;
 use Baoweb\Articles\Classes\LayoutTemplates\BasicLayoutClass;
 use Baoweb\Articles\Classes\LayoutTemplates\MultiLanguageLayoutClass;
 use Baoweb\Articles\Components\Article;
+use Baoweb\Articles\Components\ArticleListSimple;
 use Baoweb\Articles\Models\Category;
 use System\Classes\PluginBase;
 
@@ -20,7 +21,7 @@ class Plugin extends PluginBase
 
         App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new BasicLayoutClass());
 
-        App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new MultiLanguageLayoutClass());
+        // App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new MultiLanguageLayoutClass());
 
         App::make('baoweb.articles.layoutTemplates')->registerLayoutTemplate(new AdvancedLayoutClass());
     }
@@ -55,6 +56,7 @@ class Plugin extends PluginBase
     {
         return [
             Article::class => 'article',
+            ArticleListSimple::class => 'articleListSimple'
         ];
     }
 

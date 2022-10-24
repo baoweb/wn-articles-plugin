@@ -18,6 +18,6 @@ class BasicLayoutClass implements LayoutTemplateInterface {
 
     public function getRenderedArticle(Article $article): string
     {
-        // TODO: Implement getRenderedArticle() method.
+        return $article->content['content'];
     }
 }

@@ -10,7 +10,7 @@ use View;
 class Article extends ComponentBase
 {
 
-    public $content = 'aaa';
+    public $content = '';
 
     protected $article;
 
@@ -54,10 +54,5 @@ class Article extends ComponentBase
         $text = $layoutClass->getRenderedArticle($this->article);
 
         $this->content = $text;
-    }
-
-    public function onRun()
-    {
-
     }
 }

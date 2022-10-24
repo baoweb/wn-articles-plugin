@@ -59,7 +59,7 @@ tabs:
             type: nestedform
             usePanelStyles: false
             showPanel: false
-            form: $/baoweb/articles/forms/basic.yaml
+            form: $/baoweb/articles/config/forms/basic.yaml
 
         # annotation:
         #    tab: Annotation
