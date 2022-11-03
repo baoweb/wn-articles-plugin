@@ -13,6 +13,8 @@ return [
 
     'preview_path' => '/clanek/:slug',
 
+    'day_and_month_format' => 'j.n.',
+
     'date_format' => 'j.n.Y',
 
     'datetime_format' => 'j.n.Y G:i',

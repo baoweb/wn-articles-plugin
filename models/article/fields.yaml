@@ -3,12 +3,16 @@ fields:
         label: Title
         span: auto
         type: text
-    slug:
+    slug@create:
         label: Slug
         span: auto
         preset:
             field: title
             type: slug
+        type: text
+    slug:
+        label: Slug
+        span: auto
         type: text
     categories:
         label: Categories
@@ -61,6 +65,11 @@ tabs:
             showPanel: false
             form: $/baoweb/articles/config/forms/basic.yaml
 
+        _test:
+            tab: Content EN
+            type: partial
+            path: $/baoweb/articles/models/article/_empty_field.htm
+
         # annotation:
         #    tab: Annotation
         #    label: Annotation
@@ -111,7 +120,13 @@ tabs:
             mode: file
 
 secondaryTabs:
+
     fields:
+
+        preview_button:
+            type: partial
+            path: $/baoweb/articles/models/article/_preview_field.htm
+
         sidebar_Section:
             label: Article settings
             type: section
@@ -191,10 +206,11 @@ secondaryTabs:
             span: full
             type: switch
 
-        preview_section:
-            label: Preview
-            type: section
-
-        preview_button:
-            type: partial
-            path: $/baoweb/articles/models/article/_preview_field.htm
+        language:
+            label: Langugage
+            type: dropdown
+            disabled: true
+            options:
+                cs: Čeština
+                en: Angliština
+                both: Oba jazyky

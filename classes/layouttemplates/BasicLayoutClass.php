@@ -14,7 +14,18 @@ class BasicLayoutClass implements LayoutTemplateInterface {
         return 'basic';
     }
 
-    public function applyChangesToForm($form): void {}
+    public function applyChangesToForm($formWidget): void
+    {
+        $formWidget->addTabFields([
+            '_content_en' => [
+                'tab' =>  'Content EN',
+                'type' =>  'nestedform',
+                'usePanelStyles' =>  false,
+                'showPanel' =>  false,
+                'form' =>  '$/baoweb/articles/config/forms/basic.yaml',
+            ],
+        ]);
+    }
 
     public function getRenderedArticle(Article $article): string
     {

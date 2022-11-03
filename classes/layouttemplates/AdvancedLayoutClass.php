@@ -19,10 +19,18 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
     public function applyChangesToForm($formWidget): void
     {
         $formWidget->removeField('content');
+        $formWidget->removeField('_content_en');
 
         $formWidget->addTabFields([
             'content' => [
                 'tab' =>  'Content',
+                'type' =>  'nestedform',
+                'usePanelStyles' =>  false,
+                'showPanel' =>  false,
+                'form' =>  '$/baoweb/articles/config/forms/with-gallery.yaml',
+            ],
+            '_content_en' => [
+                'tab' =>  'Content EN',
                 'type' =>  'nestedform',
                 'usePanelStyles' =>  false,
                 'showPanel' =>  false,

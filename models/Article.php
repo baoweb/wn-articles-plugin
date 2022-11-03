@@ -24,7 +24,6 @@ class Article extends Model
     public $translatable = [
         'title',
         'annotation',
-        'content',
         'slug',
     ];
 
@@ -80,6 +79,50 @@ class Article extends Model
 
     public function beforeSave()
     {
+        // this is only because eof translation
+        if(post('Article') && isset(post('Article')['_content_en'])) {
+            $contentEn = post('Article')['_content_en'];
+
+            $content = $this->content;
+
+            $content['translations']['en'] = $contentEn;
+
+            $this->content = $content;
+        }
+
+        if($trans = post('RLTranslate')) {
+            $cs = false;
+            $en = false;
+
+            if(
+                trim($trans['cs']['title']) ||
+                trim($trans['cs']['slug']) ||
+                trim($trans['cs']['annotation'])
+            ) {
+                $cs = true;
+            }
+
+            if(
+                trim($trans['en']['slug']) ||
+                trim($trans['en']['title']) ||
+                trim($trans['en']['annotation'])
+            ) {
+                $en = true;
+            }
+
+            $lang = 'cs';
+
+            if ($cs && $en) {
+                $lang = 'both';
+            } elseif (!$cs && $en) {
+                $lang = 'en';
+            }
+
+            $this->language = $lang;
+
+        }
+
+
         if(!$this->published_at && $this->is_published) {
             $this->published_at = Carbon::now();
         }
@@ -112,6 +155,30 @@ class Article extends Model
                 $query->whereIn('baoweb_articles_categories.id', $categories);
             });
         });
+    }
+
+    public function afterFetch()
+    {
+        $english = [];
+
+        if(isset($this->content['translations'])) {
+            $english = $this->content['translations']['en'];
+        }
+
+        $output = [];
+
+        if($this->content) {
+            foreach($this->content as $key => $value) {
+                if($key !== 'translations') {
+                    $output[$key] = $value;
+                }
+            }
+        }
+
+
+        $this->_content_en = $english;
+
+        $this->content = $output;
     }
 
     public function scopeFilterByCategory($query, $filter)

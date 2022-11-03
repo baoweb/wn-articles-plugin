@@ -13,12 +13,18 @@ class ArticleDuplicator
 
         $newArticle = new Article();
 
+        // translations
+        $tempContent = $template->content;
+
+        $tempContent['translations']['en'] = $template->_content_en;
+
         $newArticle->title = '';
         $newArticle->template = $template->template;
         $newArticle->annotation = $template->annotation;
-        $newArticle->content = $template->content;
+        $newArticle->content = $tempContent;
         $newArticle->is_featured = $template->is_featured;
         $newArticle->has_long_title = $template->has_long_title;
+
 
         if($this->duplicateTitle) {
             $newArticle->title = '[kopie] ' . $template->title;
