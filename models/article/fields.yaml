@@ -3,16 +3,12 @@ fields:
         label: Title
         span: auto
         type: text
-    slug@create:
+    slug:
         label: Slug
         span: auto
         preset:
             field: title
             type: slug
-        type: text
-    slug:
-        label: Slug
-        span: auto
         type: text
     categories:
         label: Categories
