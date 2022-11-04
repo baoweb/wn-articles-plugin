@@ -1,6 +1,6 @@
 columns:
     title:
-        label: Title
+        label:  'baoweb.articles::lang.articles.title'
         type: text
         searchable: true
         sortable: true

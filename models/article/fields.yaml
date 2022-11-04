@@ -1,37 +1,37 @@
 fields:
     title:
-        label: Title
+        label: 'baoweb.articles::lang.articles.title'
         span: auto
         type: text
     slug:
-        label: Slug
+        label: 'baoweb.articles::lang.articles.slug'
         span: auto
         preset:
             field: title
             type: slug
         type: text
     categories:
-        label: Categories
+        label: 'baoweb.articles::lang.articles.categories'
         span: auto
         type: taglist
         customTags: false
         mode: relation
     template@update:
-        label: Template
+        label: 'baoweb.articles::lang.articles.template'
         span: auto
         type: dropdown
         default: published
         disabled: true
         emptyOption: '- select template -'
     template@create:
-        label: Template
+        label: 'baoweb.articles::lang.articles.template'
         span: auto
         type: dropdown
         default: published
-        emptyOption: '- select template -'
+        emptyOption:  'baoweb.articles::lang.articles.template_select'
     long_title:
-        label: Long title
-        comment: Will be used in article detail
+        label: 'baoweb.articles::lang.articles.long_title'
+        comment: 'baoweb.articles::lang.articles.long_title_desc'
         span: full
         type: text
         trigger:
@@ -40,8 +40,8 @@ fields:
             condition: checked
     annotation:
         # tab: Annotation
-        label: Annotation
-        description: This field will be displayed in lists of articles.
+        label: 'baoweb.articles::lang.articles.annotation'
+        description: 'baoweb.articles::lang.articles.annotation_desc'
         toolbarButtons: bold|italic
         type: richeditor
         size: small
@@ -49,22 +49,23 @@ fields:
 tabs:
     fields:
         content_section:
-            tab: Content
+            tab: Obsah
             type: section
             label: Article content
             hidden: true
 
         content:
-            tab: Content
+            tab: Obsah
             type: nestedform
             usePanelStyles: false
             showPanel: false
             form: $/baoweb/articles/config/forms/basic.yaml
 
         _test:
-            tab: Content EN
+            tab: Obsah EN
             type: partial
             path: $/baoweb/articles/models/article/_empty_field.htm
+
 
         # annotation:
         #    tab: Annotation
@@ -75,16 +76,16 @@ tabs:
         #    size: large
 
         gallery_section:
-            tab: Gallery
+            tab: 'baoweb.articles::lang.articles.tabs.gallery'
             label: Gallery
             type: section
             comment: Here, you can attach images that will be displayed in the gallery.
         gallery_hint:
-            tab: Gallery
+            tab: 'baoweb.articles::lang.articles.tabs.gallery'
             type: hint
             path: $/baoweb/articles/models/article/_gallery_hint.htm
         galleryPhotos:
-            tab: Gallery
+            tab: 'baoweb.articles::lang.articles.tabs.gallery'
             label: ""
             type: fileupload
             mode: image
@@ -101,16 +102,16 @@ tabs:
                 extension: auto
 
         attachments_section:
-            tab: Attachments
+            tab: 'baoweb.articles::lang.articles.tabs.attachments'
             label: Gallery
             type: section
             comment: Here, you can attach images that will be displayed in the gallery.
         attachments_hint:
-            tab: Attachments
+            tab: 'baoweb.articles::lang.articles.tabs.attachments'
             type: hint
             path: $/baoweb/articles/models/article/_attachments_hint.htm
         attachments:
-            tab: Attachments
+            tab: 'baoweb.articles::lang.articles.tabs.attachments'
             label: ""
             type: fileupload
             mode: file
@@ -124,11 +125,11 @@ secondaryTabs:
             path: $/baoweb/articles/models/article/_preview_field.htm
 
         sidebar_Section:
-            label: Article settings
+            label: 'baoweb.articles::lang.articles.sidebar_Section'
             type: section
 
         coverImage:
-            label: "Cover image"
+            label: 'baoweb.articles::lang.articles.coverImage'
             type: fileupload
             mode: image
             imageHeight: 150
@@ -144,43 +145,43 @@ secondaryTabs:
                 extension: auto
 
         is_featured:
-            label: Featured
-            comment: Display first in lists
+            label: 'baoweb.articles::lang.articles.is_featured'
+            comment: 'baoweb.articles::lang.articles.is_featured_desc'
             span: full
             type: switch
         has_long_title:
-            label: Has long title
-            comment: Use long title for detail
+            label: 'baoweb.articles::lang.articles.has_long_title'
+            comment: 'baoweb.articles::lang.articles.has_long_title_desc'
             span: full
             type: switch
         is_published:
-            label: Published
-            comment: Display on frontend
+            label: 'baoweb.articles::lang.articles.is_published'
+            comment: 'baoweb.articles::lang.articles.is_published_desc'
             span: full
             type: switch
         published_at:
-            label: Published at
+            label: 'baoweb.articles::lang.articles.published_at'
             span: full
             type: datepicker
         author:
-            label: Author
+            label: 'baoweb.articles::lang.articles.author'
             span: full
             nameFrom: fullName
             type: relation
             disabled: true
         custom_author:
-            label: Author - custom
-            comment: This field will override the author above. Leave empty if not needed.
+            label: 'baoweb.articles::lang.articles.custom_author'
+            comment: 'baoweb.articles::lang.articles.custom_author_desc'
             span: full
             type: text
 
         is_scheduled:
-            label: Scheduled publishing
-            comment: Publish and unpublish dates
+            label: 'baoweb.articles::lang.articles.is_scheduled'
+            comment: 'baoweb.articles::lang.articles.is_scheduled_desc'
             span: full
             type: switch
         publish_at:
-            label: Publish at
+            label: 'baoweb.articles::lang.articles.publish_at'
             span: full
             type: datepicker
             trigger:
@@ -188,7 +189,7 @@ secondaryTabs:
                 field: is_scheduled
                 condition: checked
         unpublish_at:
-            label: Unpublish at
+            label: 'baoweb.articles::lang.articles.unpublish_at'
             span: full
             type: datepicker
             trigger:
@@ -197,13 +198,13 @@ secondaryTabs:
                 condition: checked
 
         is_template:
-            label: Template document
-            comment: Presets for others
+            label: 'baoweb.articles::lang.articles.is_template'
+            comment: 'baoweb.articles::lang.articles.is_template_desc'
             span: full
             type: switch
 
         language:
-            label: Langugage
+            label: 'baoweb.articles::lang.articles.language'
             type: dropdown
             disabled: true
             options:

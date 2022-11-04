@@ -23,14 +23,14 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
 
         $formWidget->addTabFields([
             'content' => [
-                'tab' =>  'Content',
+                'tab' =>  'Obsah',
                 'type' =>  'nestedform',
                 'usePanelStyles' =>  false,
                 'showPanel' =>  false,
                 'form' =>  '$/baoweb/articles/config/forms/with-gallery.yaml',
             ],
             '_content_en' => [
-                'tab' =>  'Content EN',
+                'tab' =>  'Obsah EN',
                 'type' =>  'nestedform',
                 'usePanelStyles' =>  false,
                 'showPanel' =>  false,

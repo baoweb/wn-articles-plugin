@@ -18,7 +18,7 @@ class BasicLayoutClass implements LayoutTemplateInterface {
     {
         $formWidget->addTabFields([
             '_content_en' => [
-                'tab' =>  'Content EN',
+                'tab' =>  'Obsah EN',
                 'type' =>  'nestedform',
                 'usePanelStyles' =>  false,
                 'showPanel' =>  false,

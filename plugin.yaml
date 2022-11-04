@@ -32,11 +32,11 @@ navigation:
             - access-articles
         sideMenu:
             articles-side-menu:
-                label: Articles
+                label: 'baoweb.articles::lang.menu.articles'
                 url: baoweb/articles/articles
                 icon: icon-edit
             templates-side-menu:
-                label: Templates
+                label: 'baoweb.articles::lang.menu.templates'
                 url: baoweb/articles/templates
                 icon: icon-file
             categories:
