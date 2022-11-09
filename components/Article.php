@@ -6,6 +6,7 @@ use Cms\Classes\ComponentBase;
 use \Baoweb\Articles\Models\Article as ArticleModel;
 use Illuminate\Support\Facades\Response;
 use View;
+use Winter\Storm\Support\Str;
 
 class Article extends ComponentBase
 {
@@ -37,8 +38,22 @@ class Article extends ComponentBase
     {
         $slug = $this->param('slug');
 
-        $this->article = ArticleModel::with(['attachments'])
-            ->where(['slug' => $slug])->first();
+        $articleQuery = ArticleModel::with(['attachments']);
+
+        if(config('baoweb.articles::id_in_slug')) {
+
+            $id = (int) Str::before($slug, '-');
+
+            if(!$id) {
+                return $this->controller->run('404');
+            }
+
+            $articleQuery->where(['id' => $id]);
+        } else {
+            $articleQuery->where(['slug' => $slug]);
+        }
+
+        $this->article = $articleQuery->first();
 
         if(!$this->article) {
             return $this->controller->run('404');

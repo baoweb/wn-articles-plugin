@@ -263,4 +263,13 @@ class Article extends Model
     {
         return Category::pluck('name', 'id');
     }
+
+    public function generateSlug()
+    {
+        if(config('baoweb.articles::id_in_slug')) {
+            return $this->id . '-' .$this->slug;
+        }
+
+        return $this->slug;
+    }
 }
