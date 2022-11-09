@@ -2,6 +2,7 @@
 
 use App;
 use Backend\Models\User;
+use Baoweb\Articles\Classes\LayoutTemplates\LayoutTemplateInterface;
 use Baoweb\Articles\Controllers\Categories;
 use Carbon\Carbon;
 use http\Client\Request;
@@ -9,6 +10,7 @@ use Model;
 use Backend\Facades\BackendAuth;
 use Winter\Storm\Database\Builder;
 use Winter\Storm\Support\Facades\DB;
+use Winter\Storm\Support\Str;
 
 /**
  * Model
@@ -244,6 +246,22 @@ class Article extends Model
         }
 
         return $this->author->first_name . ' ' . $this->author->last_name;
+    }
+
+    public function getAnnotation()
+    {
+        if($this->annotation) {
+            return $this->annotation;
+        }
+
+        /* @var $layoutClass LayoutTemplateInterface */
+        $layoutClass = App::make('baoweb.articles.layoutTemplates')->getLayoutInstance($this->template);
+
+        $text = $layoutClass->getRenderedArticle($this);
+
+        $text = strip_tags($text);
+
+        return Str::limit($text, 500, ' ...');
     }
 
     public function publishedAtForHumans()

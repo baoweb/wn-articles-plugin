@@ -15,7 +15,14 @@ class Category extends Model
 
     use \Winter\Storm\Database\Traits\SoftDelete;
 
+    public $implement = ['@Winter.Translate.Behaviors.TranslatableModel'];
+
     protected $dates = ['deleted_at'];
+
+    public $translatable = [
+        'name',
+        'slug',
+    ];
 
     /**
      * @var string The database table used by the model.
