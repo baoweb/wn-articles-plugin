@@ -55,8 +55,8 @@ class Article extends Model
     ];
 
     public $attachMany = [
-        'galleryPhotos' => 'System\Models\File',
-        'attachments' => 'System\Models\File',
+        'galleryPhotos' => ['System\Models\File', 'public' => false ],
+        'attachments' => ['System\Models\File', 'public' => false ],
     ];
 
     public $attachOne = [
