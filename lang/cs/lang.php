@@ -13,6 +13,8 @@
     ],
     'categories' => [
         'name' => 'Name',
+        'internal_name' => 'Intrení název',
+        'internal_name_desc' => 'Tento název (pokud vyplněn) slouží po interní potřeby CMS',
         'slug' => 'Slug',
     ],
     'articles' => [

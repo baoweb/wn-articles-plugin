@@ -65,4 +65,9 @@ class Category extends Model
             $builder->whereIn('baoweb_articles_categories.id', $categories);
         });
     }
+
+    public function getLabelAttribute()
+    {
+        return $this->internal_name ?: $this->name;
+    }
 }

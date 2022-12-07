@@ -10,19 +10,12 @@ fields:
             field: title
             type: slug
         type: text
-    categories:
-        label: 'baoweb.articles::lang.articles.categories'
-        span: auto
-        type: taglist
-        customTags: false
-        mode: relation
-    template@update:
-        label: 'baoweb.articles::lang.articles.template'
-        span: auto
-        type: dropdown
-        default: published
-        disabled: true
-        emptyOption: '- select template -'
+    #categories:
+    #    label: 'baoweb.articles::lang.articles.categories'
+    #    span: auto
+    #    type: taglist
+    #    customTags: false
+    #    mode: relation
     template@create:
         label: 'baoweb.articles::lang.articles.template'
         span: auto
@@ -66,6 +59,12 @@ tabs:
             type: partial
             path: $/baoweb/articles/models/article/_empty_field.htm
 
+        categories:
+            tab: 'baoweb.articles::lang.articles.tabs.categories'
+            label: 'baoweb.articles::lang.articles.tabs.categories'
+            type: relation
+            span: left
+            nameFrom: label
 
         # annotation:
         #    tab: Annotation
@@ -124,9 +123,20 @@ secondaryTabs:
             type: partial
             path: $/baoweb/articles/models/article/_preview_field.htm
 
+        is_published:
+            label: 'baoweb.articles::lang.articles.is_published'
+            comment: 'baoweb.articles::lang.articles.is_published_desc'
+            span: full
+            type: switch
+
         sidebar_Section:
             label: 'baoweb.articles::lang.articles.sidebar_Section'
             type: section
+
+        published_at:
+            label: 'baoweb.articles::lang.articles.published_at'
+            span: full
+            type: datepicker
 
         coverImage:
             label: 'baoweb.articles::lang.articles.coverImage'
@@ -154,15 +164,7 @@ secondaryTabs:
             comment: 'baoweb.articles::lang.articles.has_long_title_desc'
             span: full
             type: switch
-        is_published:
-            label: 'baoweb.articles::lang.articles.is_published'
-            comment: 'baoweb.articles::lang.articles.is_published_desc'
-            span: full
-            type: switch
-        published_at:
-            label: 'baoweb.articles::lang.articles.published_at'
-            span: full
-            type: datepicker
+
         author:
             label: 'baoweb.articles::lang.articles.author'
             span: full
@@ -211,3 +213,11 @@ secondaryTabs:
                 cs: Čeština
                 en: Angliština
                 both: Oba jazyky
+
+        template@update:
+            label: 'baoweb.articles::lang.articles.template'
+            span: full
+            type: dropdown
+            default: published
+            disabled: true
+            emptyOption: '- select template -'

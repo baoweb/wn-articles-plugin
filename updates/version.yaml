@@ -21,3 +21,6 @@
 1.0.8:
     - 'Updated table baoweb_articles_articles'
     - builder_table_update_baoweb_articles_articles_2.php
+1.0.9:
+    - 'Updated table baoweb_articles_categories'
+    - builder_table_update_baoweb_articles_categories.php
