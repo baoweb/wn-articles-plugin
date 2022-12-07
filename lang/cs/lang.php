@@ -12,10 +12,10 @@
         'edit_author' => 'Úprava autora u článků',
     ],
     'categories' => [
-        'name' => 'Name',
+        'name' => 'Název',
         'internal_name' => 'Intrení název',
         'internal_name_desc' => 'Tento název (pokud vyplněn) slouží po interní potřeby CMS',
-        'slug' => 'Slug',
+        'slug' => 'Adresa',
     ],
     'articles' => [
         'author' => 'Autor',
@@ -60,6 +60,7 @@
             'content_en' => 'Obsah EN',
             'gallery' => 'Galerie',
             'attachments' => 'Přílohy',
+            'categories' => 'Kategorie',
         ]
     ],
     'menu' => [

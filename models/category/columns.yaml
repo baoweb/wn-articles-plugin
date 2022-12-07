@@ -3,6 +3,10 @@ columns:
         label: 'baoweb.articles::lang.categories.name'
         type: text
         searchable: true
+    internal_name:
+        label: 'baoweb.articles::lang.categories.internal_name'
+        type: text
+        searchable: true
     article_count:
         label: Articles
         type: partial

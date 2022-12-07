@@ -10,7 +10,7 @@ scopes:
         # Model Class name
         modelClass: Baoweb\Articles\Models\Category
         # Model attribute to display for the name
-        nameFrom: name
+        nameFrom: label
         # Filter scope
         scope: filterByCategory
 

@@ -60,6 +60,7 @@
             'content_en' => 'Content EN',
             'gallery' => 'Gallery',
             'attachments' => 'Attachments',
+            'categories' => 'Categories',
         ]
 
     ],
