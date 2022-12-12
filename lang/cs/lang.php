@@ -7,6 +7,7 @@
         'accessArticles' => 'Přístup pluginu článků',
         'editCategories' => 'Může spravovat kategorie',
         'editAllCategories' => 'Editace všech článků',
+        'editTemplates' => 'Editace šablon',
         'editOnlySelectedArticles' => 'Editace článků pouze ve vybraných kategoriích',
         'assign_rights' => 'Správa přístupu editorů ke kategoriím',
         'edit_author' => 'Úprava autora u článků',

@@ -7,6 +7,7 @@
         'accessArticles' => 'Access articles',
         'editCategories' => 'Can edit categories',
         'editAllCategories' => 'Has access all articles',
+        'editTemplates' => 'Can edit templates',
         'editOnlySelectedArticles' => 'Can edit articles in selected categories',
         'assign_rights' => 'Assign user access to categories',
         'edit_author' => 'Change article\'s author',
