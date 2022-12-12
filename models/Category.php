@@ -70,4 +70,19 @@ class Category extends Model
     {
         return $this->internal_name ?: $this->name;
     }
+
+    public function getCategoryOptions()
+    {
+        $categories = Category::select('id', 'name', 'internal_name')
+            ->orderBy('name')
+            ->get();
+
+        $output = [];
+
+        foreach($categories as $category) {
+            $output[$category->id] = $category->label;
+        }
+
+        return $output;
+    }
 }

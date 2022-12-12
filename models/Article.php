@@ -50,7 +50,8 @@ class Article extends Model
             Category::class,
             'table'    => 'baoweb_articles_articles_categories',
             'key'      => 'article_id',
-            'otherKey' => 'category_id'
+            'otherKey' => 'category_id',
+            'order' => 'name',
         ]
     ];
 
@@ -186,7 +187,7 @@ class Article extends Model
     public function scopeFilterByCategory($query, $filter)
     {
         return $query->whereHas('categories', function($category) use ($filter) {
-            $category->whereIn('baoweb_articles_articles_categories.id', $filter);
+            $category->whereIn('category_id', $filter);
         });
     }
 

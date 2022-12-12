@@ -1,4 +1,10 @@
 columns:
+    id:
+        label: ID
+        type: text
+        searchable: true
+        sortable: true
+        width: 80px
     title:
         label:  'baoweb.articles::lang.articles.title'
         type: text

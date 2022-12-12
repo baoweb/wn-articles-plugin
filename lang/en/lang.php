@@ -16,6 +16,8 @@
         'internal_name' => 'Internal name',
         'internal_name_desc' => 'This name (if filled out) will be displayed in the CMS (not on frontend)',
         'slug' => 'Slug',
+        'has_text' => 'Show introductory text',
+        'text' => 'Introductgory text',
     ],
     'articles' => [
         'author' => 'Author',

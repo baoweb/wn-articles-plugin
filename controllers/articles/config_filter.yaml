@@ -9,8 +9,7 @@ scopes:
         label: Categories
         # Model Class name
         modelClass: Baoweb\Articles\Models\Category
-        # Model attribute to display for the name
-        nameFrom: label
+        options: getCategoryOptions
         # Filter scope
         scope: filterByCategory
 

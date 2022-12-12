@@ -19,3 +19,16 @@ fields:
         label: Active
         span: left
         type: switch
+    has_text:
+        label: 'baoweb.articles::lang.categories.has_text'
+        span: left
+        type: switch
+    text:
+        label: 'baoweb.articles::lang.categories.text'
+        span: full
+        type: richeditor
+        size: huge
+        trigger:
+            action: show
+            field: has_text
+            condition: checked

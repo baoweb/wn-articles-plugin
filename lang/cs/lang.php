@@ -16,6 +16,8 @@
         'internal_name' => 'Intrení název',
         'internal_name_desc' => 'Tento název (pokud vyplněn) slouží po interní potřeby CMS',
         'slug' => 'Adresa',
+        'has_text' => 'Zobrazit úvodní text',
+        'text' => 'Úvodní text',
     ],
     'articles' => [
         'author' => 'Autor',
