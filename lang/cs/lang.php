@@ -14,7 +14,8 @@
     ],
     'categories' => [
         'name' => 'Název',
-        'internal_name' => 'Intrení název',
+        'name_en' => 'Název (en)',
+        'internal_name' => 'Interní název',
         'internal_name_desc' => 'Tento název (pokud vyplněn) slouží po interní potřeby CMS',
         'slug' => 'Adresa',
         'has_text' => 'Zobrazit úvodní text',

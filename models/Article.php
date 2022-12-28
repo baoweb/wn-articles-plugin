@@ -252,7 +252,7 @@ class Article extends Model
     public function getAnnotation()
     {
         if($this->annotation) {
-            return $this->annotation;
+            return strip_tags($this->annotation);
         }
 
         /* @var $layoutClass LayoutTemplateInterface */

@@ -5,14 +5,20 @@ columns:
         searchable: true
         sortable: true
         width: 80px
-    name:
-        label: 'baoweb.articles::lang.categories.name'
-        type: text
-        searchable: true
     internal_name:
         label: 'baoweb.articles::lang.categories.internal_name'
         type: text
         searchable: true
+    name:
+        label: 'baoweb.articles::lang.categories.name'
+        type: text
+        searchable: true
+    name_en:
+        label: 'baoweb.articles::lang.categories.name_en'
+        type: partial
+        align: left
+        path: ~/plugins/baoweb/articles/models/category/_name_en_column.htm
+        sortable: false
     article_count:
         label: Articles
         type: partial

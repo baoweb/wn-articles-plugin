@@ -6,7 +6,7 @@
 
 <div class="flex flex-col ">
     {% for article in __SELF__.articles %}
-    <a href="/clanek/{{ article.generateSlug() }}" class="group block -mx-5 px-5  py-6 hover:bg-gray-50">
+    <a href="{{ 'article' | page({slug: article.generateSlug() }) }}" class="group block -mx-5 px-5  py-6 hover:bg-gray-50">
         <div class="text-2xl font-light text-main group-hover:text-secondary-500 mb-4">
             {{ article.title }}
         </div>
@@ -24,12 +24,12 @@
                     <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
                 </svg>
                 <div>
-                    {{ article.publishedAtForHumans() }}
+                    {{ article.publishedAtForHumans() | replace({" ": "&nbsp;"}) | raw }}
                 </div>
             </div>
         </div>
         <div class="mt-2">
-            {{ article.getAnnotation()  | raw }}
+            {{ article.getAnnotation() | raw }}
         </div>
     </a>
     {% endfor %}

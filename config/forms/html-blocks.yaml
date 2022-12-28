@@ -40,16 +40,14 @@ documents:
             type: partial
             path: ~/plugins/baoweb/articles/config/forms/partials/_documents_field.htm
 
-category:
-    name: Article list
-    description: List of articles from a category
-    icon: icon-list
+html:
+    name: Raw HTML
+    description: Block of raw HTML
+    icon: icon-file-text-o
     fields:
-        category_listing:
-            label: Category
-            span: auto
-            type: dropdown
-        no_of_articles:
-            label: Number of articles
-            span: auto
-            type: number
+        content:
+            label: Text content
+            span: full
+            type: codeeditor
+            language: html
+            size: huge

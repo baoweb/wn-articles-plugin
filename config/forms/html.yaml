@@ -1,0 +1,6 @@
+fields:
+    body_groups:
+        type: repeater
+        prompt: Add new block
+        style: default
+        groups: $/baoweb/articles/config/forms/html-blocks.yaml
