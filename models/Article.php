@@ -4,6 +4,7 @@ use App;
 use Backend\Models\User;
 use Baoweb\Articles\Classes\LayoutTemplates\LayoutTemplateInterface;
 use Baoweb\Articles\Controllers\Categories;
+use Baoweb\SimpleCounter\Classes\SimpleCounter;
 use Carbon\Carbon;
 use http\Client\Request;
 use Model;
@@ -20,6 +21,8 @@ class Article extends Model
     use \Winter\Storm\Database\Traits\Validation;
 
     use \Winter\Storm\Database\Traits\SoftDelete;
+
+    use SimpleCounter;
 
     public $implement = ['@Winter.Translate.Behaviors.TranslatableModel'];
 
@@ -290,5 +293,10 @@ class Article extends Model
         }
 
         return $this->slug;
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
     }
 }

@@ -2,6 +2,7 @@
 
 use App;
 use Backend\Facades\BackendAuth;
+use Baoweb\SimpleCounter\Classes\SimpleCounter;
 use Model;
 use Winter\Storm\Database\Builder;
 use Winter\Storm\Support\Facades\DB;
@@ -14,6 +15,8 @@ class Category extends Model
     use \Winter\Storm\Database\Traits\Validation;
 
     use \Winter\Storm\Database\Traits\SoftDelete;
+
+    use SimpleCounter;
 
     public $implement = ['@Winter.Translate.Behaviors.TranslatableModel'];
 

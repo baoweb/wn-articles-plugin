@@ -69,5 +69,8 @@ class Article extends ComponentBase
         $text = $layoutClass->getRenderedArticle($this->article);
 
         $this->content = $text;
+
+        // incrementing
+        $this->article->incrementCounter();
     }
 }

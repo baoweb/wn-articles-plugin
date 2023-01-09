@@ -4,7 +4,7 @@ use Cms\Classes\ComponentBase;
 use Baoweb\Articles\Models\Article;
 use Baoweb\Articles\Models\Category;
 
-class ArticleList extends ComponentBase
+class ArticleListCompact extends ComponentBase
 {
     public $articles;
 
@@ -16,8 +16,8 @@ class ArticleList extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'ArtileListSimple Component',
-            'description' => 'No description provided yet...'
+            'name'        => 'Compact article list',
+            'description' => 'Article list showing only titles'
         ];
     }
 
@@ -28,8 +28,8 @@ class ArticleList extends ComponentBase
     {
         return [
             'category' => [
-                'name'        => 'Article list',
-                'description' => 'Article list with annotations'
+                'title'   => 'Catgeory',
+                'type'    => 'dropdown'
             ]
         ];
     }

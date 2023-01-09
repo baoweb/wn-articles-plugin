@@ -9,6 +9,7 @@ use Baoweb\Articles\Classes\LayoutTemplates\HtmlLayoutClass;
 use Baoweb\Articles\Classes\LayoutTemplates\MultiLanguageLayoutClass;
 use Baoweb\Articles\Components\Article;
 use Baoweb\Articles\Components\ArticleList;
+use Baoweb\Articles\Components\ArticleListCompact;
 use Baoweb\Articles\Components\ArticleListSimple;
 use Baoweb\Articles\Models\Category;
 use System\Classes\PluginBase;
@@ -62,6 +63,7 @@ class Plugin extends PluginBase
             Article::class => 'article',
             ArticleListSimple::class => 'articleListSimple',
             ArticleList::class => 'articleList',
+            ArticleListCompact::class => 'articleListCompact',
         ];
     }
 
