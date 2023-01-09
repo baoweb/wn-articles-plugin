@@ -1,0 +1,24 @@
+<div class="block_{{ _group }} bg-main-50 p-4">
+    <div class="flex gap-4 justify-between">
+        <div>
+            <a {{ logo1_link ? "href="~logo1_link  : "" }}>
+                <img src="/storage/app/media/{{ logo1 }}" />
+            </a>
+        </div>
+        <div>
+            <a {{ logo2_link ? "href="~logo2_link  : "" }}>
+                <img src="/storage/app/media/{{ logo2 }}" />
+            </a>
+        </div>
+        <div>
+            <a  {{ logo3_link ? "href="~logo3_link  : "" }}>
+                <img src="/storage/app/media/{{ logo3 }}" />
+            </a>
+        </div>
+    </div>
+
+    <div class="mt-10">
+        {{ header_text | raw }}
+    </div>
+
+</div>

@@ -2,6 +2,7 @@
 ;
 
 use Baoweb\Articles\Models\Article;
+use Baoweb\Articles\Models\Category;
 use Winter\Storm\Support\Facades\Twig;
 
 class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInterface {
@@ -55,10 +56,31 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
 
             $vars = $group;
 
+            // resolving groups
             if ($group['_group'] == 'documents') {
                 foreach($article->attachments as $attachment) {
                     $attachment->file_size_for_humans = round($attachment->file_size / 10000) / 100 . ' Mb';
                 }
+            }
+
+            // group
+            if ($group['_group'] == 'category') {
+
+                $categoryId = $group['category_listing'];
+
+                $limit = $group['no_of_articles'];
+
+                $category = Category::find($categoryId);
+
+                $articles = $category->articles()
+                    ->with('author')
+                    ->where('is_published', 1)
+                    ->orderBy('published_at', 'desc')
+                    ->limit($limit)
+                    ->get();
+
+                $vars['articles'] = $articles;
+                $vars['category'] = $category;
             }
 
             $vars['article'] = $article;

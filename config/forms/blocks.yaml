@@ -53,3 +53,80 @@ category:
             label: Number of articles
             span: auto
             type: number
+
+project_header_2:
+    name: Project header - two logos
+    description: Project header with two logos
+    icon: icon-header
+    fields:
+        logo1:
+            label: First logo
+            type: mediafinder
+            mode: image
+            span: storm
+            cssClass: col-md-6
+        logo2:
+            label: Second logo
+            type: mediafinder
+            mode: image
+            span: storm
+            cssClass: col-md-6
+        logo1_link:
+            label: First logo link
+            type: text
+            span: storm
+            cssClass: col-md-6
+        logo2_link:
+            label: Second logo link
+            type: text
+            span: storm
+            cssClass: col-md-6
+        text:
+            label: Header text
+            span: full
+            type: richeditor
+            size: large
+
+project_header_3:
+    name: Project header - three logos
+    description: Project header with three logos
+    icon: icon-header
+    fields:
+        logo1:
+            label: First logo
+            type: mediafinder
+            mode: image
+            span: storm
+            cssClass: col-md-4
+        logo2:
+            label: Second logo
+            type: mediafinder
+            mode: image
+            span: storm
+            cssClass: col-md-4
+        logo3:
+            label: Third logo
+            type: mediafinder
+            mode: image
+            span: storm
+            cssClass: col-md-4
+        logo1_link:
+            label: First logo link
+            type: text
+            span: storm
+            cssClass: col-md-4
+        logo2_link:
+            label: Second logo link
+            type: text
+            span: storm
+            cssClass: col-md-4
+        logo3_link:
+            label: third logo link
+            type: text
+            span: storm
+            cssClass: col-md-4
+        header_text:
+            label: Header text
+            span: full
+            type: richeditor
+            size: large
