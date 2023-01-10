@@ -38,7 +38,8 @@ class Article extends ComponentBase
     {
         $slug = $this->param('slug');
 
-        $articleQuery = ArticleModel::with(['attachments']);
+        $articleQuery = ArticleModel::with(['attachments'])
+            ->published();
 
         if(config('baoweb.articles::id_in_slug')) {
 

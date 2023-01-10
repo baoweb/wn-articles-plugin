@@ -13,7 +13,7 @@
 
     <div class="form-group checkboxlist-field">
             <div class="field-checkboxlist-container">
-                <p class="help-block before-field">Which cantegory has <?= $user->fullName ?> access to?</p>
+                <p class="help-block before-field">Which category has <?= $user->fullName ?> access to?</p>
                 <?php foreach($categories as $category): ?>
                 <div class="checkbox custom-checkbox" tabindex="0">
                     <input id="category<?= $category->id ?>" type="checkbox" name="categories[<?= $category->id ?>]" value="<?= $category->id ?>" <?php if($user->baowebArticleCategories->where('id', $category->id)->count()): ?>checked="checked" aria-checked="true"<?php endif ?> />

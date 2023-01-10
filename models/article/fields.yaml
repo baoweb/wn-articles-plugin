@@ -104,7 +104,7 @@ tabs:
             tab: 'baoweb.articles::lang.articles.tabs.attachments'
             label: Gallery
             type: section
-            comment: Here, you can attach images that will be displayed in the gallery.
+            comment: Here, you can attach documents that will be displayed with the article.
         attachments_hint:
             tab: 'baoweb.articles::lang.articles.tabs.attachments'
             type: hint

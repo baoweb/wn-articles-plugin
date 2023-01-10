@@ -196,7 +196,6 @@ class Article extends Model
 
     public function getTemplateOptions($value, $formData)
     {
-
         return App::make('baoweb.articles.layoutTemplates')->getLayoutTemplateNames();
     }
 
