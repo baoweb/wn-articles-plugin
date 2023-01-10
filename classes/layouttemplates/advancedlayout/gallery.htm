@@ -1,3 +1,7 @@
-<div class="block_{{ _group }}">
-    {{ content }}
+<div class="block_{{ _group }} my-16">
+    <div class="flex justify-center gap-3 flex-wrap galleryWrapper">
+    {% for photo in article.galleryPhotos %}
+        <a href="/attachments/get/{{ photo.id }}" class="block w-[130px] h-[130px] bg-cover" style="background-image: url('/attachments/get/{{ photo.id }}')"></a>
+    {% endfor %}
+    </div>
 </div>

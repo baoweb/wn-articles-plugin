@@ -62,6 +62,7 @@ class Article extends ComponentBase
         $this->page->title = $this->article->title;
         $this->page->author =  $this->article->getAuthor();
         $this->page->published_at = $this->article->publishedAtForHumans();
+        $this->page->hidePageHeader = $this->article->replacesHeader();
 
         /* @var $layoutClass LayoutTemplateInterface */
         $layoutClass = App::make('baoweb.articles.layoutTemplates')->getLayoutInstance($this->article->template);

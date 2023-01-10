@@ -299,4 +299,21 @@ class Article extends Model
     {
         return $query->where('is_published', true);
     }
+
+    public function replacesHeader()
+    {
+        if($this->template == 'advanced') {
+            if(!isset($this->content['body_groups']) || !count($this->content['body_groups'])) {
+                return false;
+            };
+
+            $firstGroup = array_values($this->content['body_groups'])[0];
+
+            if($firstGroup['_group'] == 'project_header_3' || $firstGroup['_group'] == 'project_header_2') {
+                return true;
+            }
+         };
+
+        return false;
+    }
 }
