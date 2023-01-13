@@ -63,6 +63,7 @@ tabs:
             tab: 'baoweb.articles::lang.articles.tabs.categories'
             label: 'baoweb.articles::lang.articles.tabs.categories'
             type: relation
+            order: internal_name
             span: left
             nameFrom: label
 

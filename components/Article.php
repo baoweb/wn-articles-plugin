@@ -60,7 +60,13 @@ class Article extends ComponentBase
             return $this->controller->run('404');
         }
 
-        $this->page->title = $this->article->title;
+        $title = $this->article->title;
+
+        if($this->article->has_long_title && $this->article->long_title) {
+            $title = $this->article->long_title;
+        }
+
+        $this->page->title = $title;
         $this->page->author =  $this->article->getAuthor();
         $this->page->published_at = $this->article->publishedAtForHumans();
         $this->page->hidePageHeader = $this->article->replacesHeader();
