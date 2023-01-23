@@ -38,7 +38,7 @@ class Users extends Controller
 
     public function update(int $id)
     {
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::orderBy('internal_name')->get();
 
         $this->vars['user'] = User::with('baowebArticleCategories')->findOrFail($id);
         $this->vars['categories'] = $categories;

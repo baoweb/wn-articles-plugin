@@ -5,17 +5,23 @@
 {% endif %}
 
 <div class="flex flex-col ">
-    <ul>
+    <div class="">
     {% for article in __SELF__.articles %}
-    <li>
-        <a href="{{ 'article' | page({slug: article.generateSlug() }) }}" class="block py-1">
-            <div class="text-xl font-light text-main hover:text-secondary">
-                {{ article.title }}
+        <div class="group hover:bg-main-100 flex gap-10 even:bg-main-50 p-1">
+            <a href="{{ 'article' | page({slug: article.generateSlug() }) }}" class="block flex-1">
+                <div class="font-light text-main hover:text-secondary">
+                    {{ article.title }}
+                </div>
+            </a>
+            <div>
+                {{ article.getAuthor() }}
             </div>
-        </a>
-    </li>
+            <div class="lg:w-24 text-right">
+                {{ article.publishedAtForHumans() | replace({" ": "&nbsp;"}) | raw }}
+            </div>
+        </div>
     {% endfor %}
-    </ul>
+    </div>
 </div>
 
 {{ __SELF__.articles.render|raw }}

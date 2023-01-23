@@ -264,7 +264,7 @@ class Article extends Model
 
         $text = strip_tags($text);
 
-        return Str::limit($text, 500, ' ...');
+        return Str::limit($text, 100, ' ...');
     }
 
     public function publishedAtForHumans()
@@ -282,7 +282,7 @@ class Article extends Model
 
     public function getCategoryListingOptions()
     {
-        return Category::pluck('name', 'id');
+        return Category::orderBy('internal_name')->pluck('name', 'id');
     }
 
     public function generateSlug()

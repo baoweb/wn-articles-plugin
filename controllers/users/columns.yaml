@@ -1,6 +1,11 @@
 columns:
+    login:
+        label: Login
+        type: text
+        searchable: true
+        sortable: trues
     last_name:
-        label: Name
+        label: Surname
         type: text
         searchable: true
         sortable: trues

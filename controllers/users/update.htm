@@ -17,7 +17,7 @@
                 <?php foreach($categories as $category): ?>
                 <div class="checkbox custom-checkbox" tabindex="0">
                     <input id="category<?= $category->id ?>" type="checkbox" name="categories[<?= $category->id ?>]" value="<?= $category->id ?>" <?php if($user->baowebArticleCategories->where('id', $category->id)->count()): ?>checked="checked" aria-checked="true"<?php endif ?> />
-                    <label for="category<?= $category->id ?>"><?= $category->name ?></label>
+                    <label for="category<?= $category->id ?>"><?= $category->internal_name ?></label>
                 </div>
                 <?php endforeach; ?>
             </div>
