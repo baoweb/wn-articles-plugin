@@ -171,7 +171,6 @@ secondaryTabs:
             span: full
             nameFrom: fullName
             type: relation
-            disabled: true
         custom_author:
             label: 'baoweb.articles::lang.articles.custom_author'
             comment: 'baoweb.articles::lang.articles.custom_author_desc'

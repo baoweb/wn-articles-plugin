@@ -9,10 +9,17 @@ use Baoweb\Articles\Models\Settings;
 
 class Templates extends Controller
 {
-    public $implement = [        'Backend\Behaviors\ListController',        'Backend\Behaviors\FormController'    ];
+    public $implement = [
+        'Backend\Behaviors\ListController',
+        'Backend\Behaviors\FormController'
+    ];
 
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
+
+    public $requiredPermissions = [
+        'edit-templates'
+    ];
 
     public function __construct()
     {

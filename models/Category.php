@@ -88,4 +88,16 @@ class Category extends Model
 
         return $output;
     }
+
+    public function filterFields($fields, $context = null)
+    {
+        $user = BackendAuth::getUser();
+
+        if (!$user->hasAccess(['edit_all_category_fields'])) {
+            $fields->name->disabled = true;
+            $fields->internal_name->disabled = true;
+            $fields->slug->disabled = true;
+            $fields->is_active->disabled = true;
+        }
+    }
 }

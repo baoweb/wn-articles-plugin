@@ -1,7 +1,14 @@
 <div data-control="toolbar">
-        <a href="<?= Backend::url('baoweb/articles/articles/select-template') ?>" class="btn btn-primary oc-icon-plus">Create from template</a>
-        <a href="<?= Backend::url('baoweb/articles/articles/create') ?>" class="btn btn-primary oc-icon-plus"><?= e(trans('backend::lang.form.create')) ?></a>
-            <button
+    <?php if ($this->user->hasAccess('create-article-from-template')): ?>
+    <a href="<?= Backend::url('baoweb/articles/articles/select-template') ?>" class="btn btn-primary oc-icon-plus">Create
+        from template</a>
+    <?php endif ?>
+    <?php if ($this->user->hasAccess('create-article')): ?>
+    <a href="<?= Backend::url('baoweb/articles/articles/create') ?>"
+       class="btn btn-primary oc-icon-plus"><?= e(trans('backend::lang.form.create')) ?></a>
+    <?php endif ?>
+    <?php if ($this->user->hasAccess('delete-articles')): ?>
+    <button
         class="btn btn-default oc-icon-trash-o"
         disabled="disabled"
         onclick="$(this).data('request-data', {
@@ -16,4 +23,5 @@
         data-stripe-load-indicator>
         <?= e(trans('backend::lang.list.delete_selected')) ?>
     </button>
+    <?php endif ?>
 </div>

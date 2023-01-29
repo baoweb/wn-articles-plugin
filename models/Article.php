@@ -128,7 +128,6 @@ class Article extends Model
 
         }
 
-
         if(!$this->published_at && $this->is_published) {
             $this->published_at = Carbon::now();
         }
@@ -149,17 +148,24 @@ class Article extends Model
                 return;
             }
 
-            if(isset($user->role->permissions['edit-all-articles']) && $user->role->permissions['edit-all-articles']) {
+            if($user->hasAccess(['edit-all-articles'])) {
                 return;
             }
 
-            $categories = DB::table('baoweb_articles_users_categories')
-                ->where('user_id', $user->id)
-                ->pluck('category_id');
+            if($user->hasAccess(['edit-selected-articles']) ) {
+                $categories = DB::table('baoweb_articles_users_categories')
+                    ->where('user_id', $user->id)
+                    ->pluck('category_id');
 
-            $builder->whereHas('categories', function ($query) use ($categories) {
-                $query->whereIn('baoweb_articles_categories.id', $categories);
-            });
+                $builder->whereHas('categories', function ($query) use ($categories) {
+                    $query->whereIn('baoweb_articles_categories.id', $categories);
+                });
+
+                return;
+            }
+
+           // fallback if no other option
+           $builder->where('created_by', $user->id);
         });
     }
 
@@ -223,23 +229,6 @@ class Article extends Model
     public function scopeTemplates($query)
     {
         $query->where('is_template', true);
-    }
-
-    public function filterFields($fields, $context = null)
-    {
-        if (!isset($fields->author)) {
-            return;
-        }
-
-        $user = BackendAuth::getUser();
-
-        if (!$user->hasAccess(['baoweb.articles.edit-author'])) {
-            $fields->author->disabled = true;
-
-            $fields->custom_author->hidden = true;
-        } else {
-            $fields->author->disabled = false;
-        }
     }
 
     public function getAuthor()
@@ -314,5 +303,22 @@ class Article extends Model
          };
 
         return false;
+    }
+
+    public function filterFields($fields, $context = null)
+    {
+        if (!isset($fields->author)) {
+            return;
+        }
+
+        $user = BackendAuth::getUser();
+
+        if (!$user->hasAccess(['baoweb.articles.edit-author'])) {
+            $fields->author->disabled = true;
+
+            $fields->custom_author->hidden = true;
+        } else {
+            $fields->author->disabled = false;
+        }
     }
 }

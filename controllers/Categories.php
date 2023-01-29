@@ -12,6 +12,10 @@ class Categories extends Controller
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
 
+    public $requiredPermissions = [
+        'edit-categories'
+    ];
+
     public function __construct()
     {
         parent::__construct();
