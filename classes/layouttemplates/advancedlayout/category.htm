@@ -1,5 +1,29 @@
 {% if articles | length > 0 %}
 <div class="block_{{ _group }} mt-10">
+    {% if compactList %}
+
+    <div class="flex flex-col ">
+        <div class="">
+            {% for relatedArticle in articles %}
+            <div class="group hover:bg-main-100 flex gap-10 even:bg-main-50 p-1">
+                <a href="{{ relatedArticle.generateSlug() }}" class="block flex-1">
+                    <div class="font-light text-main hover:text-secondary">
+                        {{ relatedArticle.title }}
+                    </div>
+                </a>
+                <div>
+                    {{ relatedArticle.getAuthor() }}
+                </div>
+                <div class="lg:w-24 text-right">
+                    {{ relatedArticle.publishedAtForHumans() | replace({" ": "&nbsp;"}) | raw }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    {% else %}
     <div class="flex flex-col rounded-md bg-white shadow-xl border border-main-300">
         <div class="relative flex-1 pt-8 pb-4 md:px-4">
             <div
@@ -39,8 +63,9 @@
 
         <a href="/cs/kategorie/{{ category.id }}"
            class="bg-main-50 p-3 md:px-8 text-right hover:bg-main-100 block text-main text-right font-medium text-main hover:text-main-700">další<span
-            aria-hidden="true"
-        > &rarr;</span></a>
+                aria-hidden="true"
+            > &rarr;</span></a>
     </div>
+    {% endif %}
 </div>
 {% endif %}

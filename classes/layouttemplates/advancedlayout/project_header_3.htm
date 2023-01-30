@@ -1,20 +1,26 @@
 <div class="block_{{ _group }} bg-main-50 p-4 mb-10">
     <div class="flex gap-4 justify-between">
+        {% if logo1 %}
         <div>
             <a {{ logo1_link ? "href="~logo1_link  : "" }}>
                 <img src="/storage/app/media/{{ logo1 }}" />
             </a>
         </div>
+        {% endif %}
+        {% if logo2 %}
         <div>
             <a {{ logo2_link ? "href="~logo2_link  : "" }}>
                 <img src="/storage/app/media/{{ logo2 }}" />
             </a>
         </div>
+        {% endif %}
+        {% if logo3 %}
         <div>
             <a  {{ logo3_link ? "href="~logo3_link  : "" }}>
                 <img src="/storage/app/media/{{ logo3 }}" />
             </a>
         </div>
+        {% endif %}
     </div>
 
     <div class="mt-10">

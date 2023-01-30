@@ -53,24 +53,39 @@ category:
             label: Number of articles
             span: auto
             type: number
+        compact_list:
+            label: Compact list
+            type: switch
+            default: 0
+            span: auto
 
 project_header_2:
     name: Project header - two logos
     description: Project header with two logos
     icon: icon-header
     fields:
+        logos:
+            label: Loga
+            type: section
+            span: full
         logo1:
             label: First logo
             type: mediafinder
+            imageWidth: 300px
             mode: image
             span: storm
             cssClass: col-md-6
         logo2:
             label: Second logo
             type: mediafinder
+            imageWidth: 300px
             mode: image
             span: storm
             cssClass: col-md-6
+        link:
+            label: Odkazy
+            type: section
+            span: full
         logo1_link:
             label: First logo link
             type: text
@@ -92,24 +107,35 @@ project_header_3:
     description: Project header with three logos
     icon: icon-header
     fields:
+        logos:
+            label: Loga
+            type: section
+            span: full
         logo1:
             label: First logo
             type: mediafinder
+            imageWidth: 300px
             mode: image
             span: storm
             cssClass: col-md-4
         logo2:
             label: Second logo
             type: mediafinder
+            imageWidth: 300px
             mode: image
             span: storm
             cssClass: col-md-4
         logo3:
             label: Third logo
             type: mediafinder
+            imageWidth: 300px
             mode: image
             span: storm
             cssClass: col-md-4
+        link:
+            label: Odkazy
+            type: section
+            span: full
         logo1_link:
             label: First logo link
             type: text

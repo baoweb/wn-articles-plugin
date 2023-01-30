@@ -44,6 +44,7 @@ class ArticleList extends ComponentBase
             ->with('author')
             ->where('is_published', 1)
             ->where('category_id', $this->properties['category'])
+            ->where('is_template', false)
             ->orderBy('published_at', 'desc')
             ->paginate(15);
     }

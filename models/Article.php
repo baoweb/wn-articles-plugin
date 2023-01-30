@@ -54,7 +54,7 @@ class Article extends Model
             'table'    => 'baoweb_articles_articles_categories',
             'key'      => 'article_id',
             'otherKey' => 'category_id',
-            'order' => 'name',
+            'order' => 'internal_name',
         ]
     ];
 
@@ -271,7 +271,7 @@ class Article extends Model
 
     public function getCategoryListingOptions()
     {
-        return Category::orderBy('internal_name')->pluck('name', 'id');
+        return Category::orderBy('internal_name')->pluck('internal_name', 'id');
     }
 
     public function generateSlug()
