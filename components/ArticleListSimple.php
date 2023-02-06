@@ -16,8 +16,8 @@ class ArticleListSimple extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'ArtileListSimple Component',
-            'description' => 'No description provided yet...'
+            'name'        => 'Simple article list',
+            'description' => ''
         ];
     }
 
@@ -30,18 +30,28 @@ class ArticleListSimple extends ComponentBase
             'category' => [
                 'title'   => 'Catgeory',
                 'type'    => 'dropdown'
+            ],
+            'limit' => [
+                'title'   => 'Limit',
+                'type'    => 'number',
+                'default' => 3,
             ]
         ];
     }
 
     public function init()
     {
-        $this->category = Category::findOrFail($this->properties['category']);
+        $this->category = Category::find($this->properties['category']);
+
+        if(!$this->category) {
+            return [];
+        }
 
         $this->articles = $this->category->articles()
             ->with('author')
             ->where('is_published', 1)
             ->where('category_id', 1)
+            ->limit($this->properties['limit'])
             ->orderBy('published_at', 'desc')
             ->get();
     }

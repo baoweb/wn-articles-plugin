@@ -314,11 +314,11 @@ class Article extends Model
         $user = BackendAuth::getUser();
 
         if (!$user->hasAccess(['baoweb.articles.edit-author'])) {
-            $fields->author->disabled = true;
+            $fields->author->readOnly = true;
 
             $fields->custom_author->hidden = true;
         } else {
-            $fields->author->disabled = false;
+            $fields->author->readOnly = false;
         }
     }
 }
