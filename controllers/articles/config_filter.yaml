@@ -20,3 +20,9 @@ scopes:
         conditions:
             - is_published <> true
             - is_published = true
+
+    has_no_category:
+        label: Nemá kategorii
+        type: checkbox
+        default: false
+        scope: hasNoCategory

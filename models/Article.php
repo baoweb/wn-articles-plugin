@@ -288,6 +288,11 @@ class Article extends Model
         return $query->where('is_published', true);
     }
 
+    public function scopeHasNoCategory($query)
+    {
+        return $query->doesntHave('categories');
+    }
+
     public function replacesHeader()
     {
         if($this->template == 'advanced') {
