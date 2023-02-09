@@ -13,6 +13,15 @@ scopes:
         # Filter scope
         scope: filterByCategory
 
+    author:
+        # Filter name
+        label: Autor
+        # Model Class name
+        modelClass: Backend\Models\User
+        nameFrom: last_name
+        # Filter scope
+        scope: filterByAuthor
+
     is_published:
         label: Published
         type: switch

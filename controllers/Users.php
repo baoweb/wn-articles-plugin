@@ -38,21 +38,12 @@ class Users extends Controller
 
     public function update(int $id)
     {
-        $categories = Category::orderBy('internal_name')->get();
+        $categories = Category::orderBy('internal_name')
+            ->active()
+            ->get();
 
         $this->vars['user'] = User::with('baowebArticleCategories')->findOrFail($id);
         $this->vars['categories'] = $categories;
-    }
-
-
-    public function onSave($id)
-    {
-        print_r(post());
-        dd();
-
-        if ($redirect = $this->makeRedirect()) {
-            return $redirect;
-        }
     }
 
     public function save($id)

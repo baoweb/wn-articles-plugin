@@ -100,4 +100,17 @@ class Category extends Model
             $fields->is_active->disabled = true;
         }
     }
+
+    /* -------------------------------------------------------------------------------------------------------------- */
+    /*  Scopes                                                                                                        */
+    /* -------------------------------------------------------------------------------------------------------------- */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeInactive($query)
+    {
+        return $query->where('is_active', false);
+    }
 }

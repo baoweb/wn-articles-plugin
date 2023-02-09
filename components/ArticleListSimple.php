@@ -50,7 +50,7 @@ class ArticleListSimple extends ComponentBase
         $this->articles = $this->category->articles()
             ->with('author')
             ->where('is_published', 1)
-            ->where('category_id', 1)
+            ->where('category_id', $this->category->id)
             ->limit($this->properties['limit'])
             ->orderBy('published_at', 'desc')
             ->get();

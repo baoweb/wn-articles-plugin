@@ -11,8 +11,10 @@ use Baoweb\Articles\Components\Article;
 use Baoweb\Articles\Components\ArticleList;
 use Baoweb\Articles\Components\ArticleListCompact;
 use Baoweb\Articles\Components\ArticleListSimple;
+use Baoweb\Articles\FormWidgets\AttachmentLinks;
 use Baoweb\Articles\Models\Category;
 use System\Classes\PluginBase;
+use Winter\Storm\Support\Facades\Event;
 
 class Plugin extends PluginBase
 {
@@ -79,6 +81,13 @@ class Plugin extends PluginBase
                 'permissions' => ['assign-rights'],
                 'order'       => 600
             ]
+        ];
+    }
+
+    public function registerFormWidgets()
+    {
+        return [
+            AttachmentLinks::class => 'attachmentlinks',
         ];
     }
 }

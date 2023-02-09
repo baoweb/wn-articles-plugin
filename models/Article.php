@@ -200,6 +200,11 @@ class Article extends Model
         });
     }
 
+    public function scopeFilterByAuthor($query, $filter)
+    {
+        return $query->whereIn('created_by', $filter);
+    }
+
     public function getTemplateOptions($value, $formData)
     {
         return App::make('baoweb.articles.layoutTemplates')->getLayoutTemplateNames();
@@ -271,7 +276,10 @@ class Article extends Model
 
     public function getCategoryListingOptions()
     {
-        return Category::orderBy('internal_name')->pluck('internal_name', 'id');
+        return Category::query()
+            ->active()
+            ->orderBy('internal_name')
+            ->pluck('internal_name', 'id');
     }
 
     public function generateSlug()
@@ -281,16 +289,6 @@ class Article extends Model
         }
 
         return $this->slug;
-    }
-
-    public function scopePublished($query)
-    {
-        return $query->where('is_published', true);
-    }
-
-    public function scopeHasNoCategory($query)
-    {
-        return $query->doesntHave('categories');
     }
 
     public function replacesHeader()
@@ -326,4 +324,19 @@ class Article extends Model
             $fields->author->readOnly = false;
         }
     }
+
+    /* -------------------------------------------------------------------------------------------------------------- */
+    /*  Scopes                                                                                                        */
+    /* -------------------------------------------------------------------------------------------------------------- */
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
+
+    public function scopeHasNoCategory($query)
+    {
+        return $query->doesntHave('categories');
+    }
+
 }

@@ -62,6 +62,7 @@ tabs:
         categories:
             tab: 'baoweb.articles::lang.articles.tabs.categories'
             label: 'baoweb.articles::lang.articles.tabs.categories'
+            scope: active
             type: relation
             sortBy: internal_name
             span: left
@@ -115,6 +116,21 @@ tabs:
             label: ""
             type: fileupload
             mode: file
+        attachment_links:
+            label: "Odkaz na soubory"
+            commentAbove: "Pokud chcete odkázat na připojené soubory z jiné části webu, zde si můžete odkazy zkopírovat"
+            tab: 'baoweb.articles::lang.articles.tabs.attachments'
+            type: attachmentlinks
+            span: full
+            dependsOn: attachments
+        #attachment_links:
+        #    label: "Odkaz na soubory"
+        #    commentAbove: "Pokud chcete odkázat na připojené soubory z jiné části webu, zde si můžete odkazy zkopírovat"
+        #    tab: 'baoweb.articles::lang.articles.tabs.attachments'
+        #    type: partial
+        #    path: $/baoweb/articles/templates/_attachments.htm
+        #    span: full
+        #    dependsOn: attachments
 
 secondaryTabs:
 
