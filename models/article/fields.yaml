@@ -3,6 +3,7 @@ fields:
         label: 'baoweb.articles::lang.articles.title'
         span: auto
         type: text
+        required: true
     slug:
         label: 'baoweb.articles::lang.articles.slug'
         span: auto
@@ -22,6 +23,7 @@ fields:
         type: dropdown
         default: published
         emptyOption:  'baoweb.articles::lang.articles.template_select'
+        required: true
     long_title:
         label: 'baoweb.articles::lang.articles.long_title'
         comment: 'baoweb.articles::lang.articles.long_title_desc'

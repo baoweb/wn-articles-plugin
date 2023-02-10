@@ -29,6 +29,15 @@ class BasicLayoutClass implements LayoutTemplateInterface {
 
     public function getRenderedArticle(Article $article): string
     {
-        return $article->content['content'];
+        // TODO figure out langugae
+        $lang = explode('/', request()->path());
+
+        if($lang[0] == 'en') {
+            $content = $article->_content_en;
+        } else {
+            $content = $article->content;
+        }
+
+        return $content['content'];
     }
 }

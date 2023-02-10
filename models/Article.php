@@ -76,7 +76,14 @@ class Article extends Model
      * @var array Validation rules
      */
     public $rules = [
+        'title' => 'required',
+        'template' => 'required'
     ];
+
+    public $customMessages = [
+        'required' => 'Vyplňte prosím pole :attribute.',
+    ];
+
 
     public function beforeCreate()
     {
@@ -316,7 +323,7 @@ class Article extends Model
 
         $user = BackendAuth::getUser();
 
-        if (!$user->hasAccess(['baoweb.articles.edit-author'])) {
+        if (!$user->hasAccess(['edit-author'])) {
             $fields->author->readOnly = true;
 
             $fields->custom_author->hidden = true;

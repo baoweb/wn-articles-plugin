@@ -34,7 +34,7 @@
         'slug' => 'Adresa',
         'categories' => 'Kategorie',
         'template' => 'Šablona',
-        'template_select' => '- vybrete šablonu -',
+        'template_select' => '- vyberte šablonu -',
         'long_title' => 'Dlouhý název',
         'long_title_desc' => 'Pokud vyplníte, zobrazí se v detailku článku',
         'annotation' => 'Perex',
