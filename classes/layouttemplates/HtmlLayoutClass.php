@@ -42,13 +42,23 @@ class HtmlLayoutClass extends BaseLayoutClass implements LayoutTemplateInterface
 
     public function getRenderedArticle(Article $article): string
     {
+        // TODO figure out langugae
+        $lang = explode('/', request()->path());
+
+        if($lang[0] == 'en') {
+            $content = $article->_content_en;
+        } else {
+            $content = $article->content;
+        }
+
+
         $output = '';
 
-        if(empty($article->content['body_groups'])) {
+        if(empty($content['body_groups'])) {
             return '';
         }
 
-        foreach($article->content['body_groups'] as $group) {
+        foreach($content['body_groups'] as $group) {
             $templatePath = $this->getTemplatePath($group['_group']);
 
             $template = file_get_contents($templatePath);
