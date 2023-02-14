@@ -45,6 +45,10 @@ category:
     description: List of articles from a category
     icon: icon-list
     fields:
+        box_title:
+            label: Nadpis boxu
+            span: full
+            type: text
         category_listing:
             label: Category
             span: auto

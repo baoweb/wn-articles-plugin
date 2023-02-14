@@ -1,8 +1,14 @@
 {% if articles | length > 0 %}
 <div class="block_{{ _group }} mt-10">
-    {% if compactList %}
 
+    {% if compactList %}
     <div class="flex flex-col ">
+        {% if boxTitle %}
+        <div class="border-b-2 border-main-300 mb-2 p-1 font-semibold text-sm ">
+            {{ boxTitle }}
+        </div>
+        {% endif %}
+
         <div class="">
             {% for relatedArticle in articles %}
             <div class="group hover:bg-main-100 flex gap-10 even:bg-main-50 p-1">
@@ -26,10 +32,12 @@
     {% else %}
     <div class="flex flex-col rounded-md bg-white shadow-xl border border-main-300">
         <div class="relative flex-1 pt-8 pb-4 md:px-4">
+            {% if boxTitle %}
             <div
                 class="ml-4 tracking-wide absolute top-0 inline-block -translate-y-1/2 transform rounded-md bg-main-600 py-1 px-4 shadow-lg text-white">
-                {{ category.name }}
+                {{ boxTitle }}
             </div>
+            {% endif %}
             {% for relatedArticle in articles %}
             <a href="{{ relatedArticle.generateSlug() }}" class="block px-4 py-3 hover:bg-gray-50">
                 <div class="font-bold">

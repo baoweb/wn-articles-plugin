@@ -92,6 +92,7 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
                 $vars['compactList'] =$group['compact_list'] ?? false;
                 $vars['articles'] = $articles;
                 $vars['category'] = $category;
+                $vars['boxTitle'] = $group['box_title'] ?? '';
             }
 
             $vars['article'] = $article;
