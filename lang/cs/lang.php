@@ -36,7 +36,7 @@
         'template' => 'Šablona',
         'template_select' => '- vyberte šablonu -',
         'long_title' => 'Dlouhý název',
-        'long_title_desc' => 'Pokud vyplníte, zobrazí se v detailku článku',
+        'long_title_desc' => 'Pokud vyplníte, zobrazí se v detailu článku',
         'annotation' => 'Perex',
         'annotation_desc' => 'Zobrazí se například ve výpisu článků',
         'content_section' => 'Obsah',
@@ -62,7 +62,7 @@
         'unpublish_at' => 'Ukončit publikaci v',
         'is_template' => 'Je šablonou',
         'is_template_desc' => 'Uloží dokument jako šablonu',
-        'language' => 'JAyk',
+        'language' => 'Jazyk',
 
         'tabs' => [
             'content' => 'Obsah',

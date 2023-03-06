@@ -39,7 +39,10 @@ class Article extends Model
         'unpublish_at',
     ];
 
-    protected $jsonable = ['content'];
+    protected $jsonable = [
+        'content',
+        'settings',
+    ];
 
     public $belongsTo = [
         'author' => [

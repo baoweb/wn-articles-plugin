@@ -27,3 +27,6 @@
 1.0.10:
     - 'Updated table baoweb_articles_categories'
     - update_baoweb_articles_categories_add_text.php
+1.0.11:
+    - 'Updated table baoweb_articles_articles'
+    - builder_table_update_baoweb_articles_articles_3.php

@@ -37,7 +37,7 @@ fields:
         # tab: Annotation
         label: 'baoweb.articles::lang.articles.annotation'
         description: 'baoweb.articles::lang.articles.annotation_desc'
-        toolbarButtons: bold|italic
+        toolbarButtons: bold|italic|html
         type: richeditor
         size: small
 
@@ -133,6 +133,12 @@ tabs:
         #    path: $/baoweb/articles/templates/_attachments.htm
         #    span: full
         #    dependsOn: attachments
+
+        settings[hide_page_header]:
+            label: Schovat hlavičku článku (autor a datum)
+            span: full
+            type: switch
+            tab: Další nastavení
 
 secondaryTabs:
 
