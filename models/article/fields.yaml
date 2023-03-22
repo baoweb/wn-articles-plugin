@@ -106,7 +106,7 @@ tabs:
 
         attachments_section:
             tab: 'baoweb.articles::lang.articles.tabs.attachments'
-            label: Gallery
+            label: Přílohy
             type: section
             comment: Here, you can attach documents that will be displayed with the article.
         attachments_hint:

@@ -78,6 +78,7 @@ class Category extends Model
     public function getCategoryOptions()
     {
         $categories = Category::select('id', 'name', 'internal_name')
+            ->active()
             ->orderBy('internal_name')
             ->get();
 

@@ -28,6 +28,7 @@ class Article extends Model
 
     public $translatable = [
         'title',
+        'long_title',
         'annotation',
         'slug',
     ];
