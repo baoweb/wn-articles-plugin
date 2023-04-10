@@ -344,7 +344,7 @@ class Article extends Model
 
         if(
             $this->is_published == 2 &&
-            $this->publish_at->lt(Carbon::NOW()) &&
+            $this->publish_at?->lt(Carbon::NOW()) &&
             $this->unpublish_at == null
         ) {
             return true;
@@ -352,8 +352,8 @@ class Article extends Model
 
         if(
             $this->is_published == 2 &&
-            $this->publish_at->lt(Carbon::NOW()) &&
-            $this->unpublish_at->gt(Carbon::NOW())
+            $this->publish_at?->lt(Carbon::NOW()) &&
+            $this->unpublish_at?->gt(Carbon::NOW())
         ) {
             return true;
         }
