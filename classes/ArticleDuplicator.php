@@ -18,7 +18,7 @@ class ArticleDuplicator
 
         $tempContent['translations']['en'] = $template->_content_en;
 
-        $newArticle->title = '';
+        $newArticle->title = '[vyplňte název]';
         $newArticle->template = $template->template;
         $newArticle->annotation = $template->annotation;
         $newArticle->content = $tempContent;

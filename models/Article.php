@@ -143,7 +143,7 @@ class Article extends Model
             $this->published_at = Carbon::now();
         }
 
-        if(!$this->is_scheduled) {
+        if($this->is_published != 2) {
             $this->publish_at = null;
             $this->unpublish_at = null;
         }
@@ -336,13 +336,48 @@ class Article extends Model
         }
     }
 
+    public function isPublished()
+    {
+        if($this->is_published == 1) {
+            return true;
+        }
+
+        if(
+            $this->is_published == 2 &&
+            $this->publish_at->lt(Carbon::NOW()) &&
+            $this->unpublish_at == null
+        ) {
+            return true;
+        }
+
+        if(
+            $this->is_published == 2 &&
+            $this->publish_at->lt(Carbon::NOW()) &&
+            $this->unpublish_at->gt(Carbon::NOW())
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
     /* -------------------------------------------------------------------------------------------------------------- */
     /*  Scopes                                                                                                        */
     /* -------------------------------------------------------------------------------------------------------------- */
 
     public function scopePublished($query)
     {
-        return $query->where('is_published', true);
+        return $query->where('is_published', 1)
+            ->orWhere(function ($query) {
+                $query->where('is_published', 2)
+                    ->whereDate('publish_at', '<=', Carbon::now() )
+                    ->whereNull('unpublish_at');
+            })
+            ->orWhere(function ($query) {
+                $query->where('is_published', 2)
+                    ->whereDate('publish_at', '<=', Carbon::now() )
+                    ->whereDate('unpublish_at', '>=', Carbon::now() );
+            });
     }
 
     public function scopeHasNoCategory($query)

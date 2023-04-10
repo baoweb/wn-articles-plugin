@@ -149,10 +149,29 @@ secondaryTabs:
             path: $/baoweb/articles/models/article/_preview_field.htm
 
         is_published:
-            label: 'baoweb.articles::lang.articles.is_published'
-            comment: 'baoweb.articles::lang.articles.is_published_desc'
             span: full
-            type: switch
+            type: radio
+            options:
+                0: nepublikováno
+                1: publikováno
+                2: publikováno pouze u termínu
+
+        publish_at:
+            label: Publikovat od
+            span: full
+            type: datepicker
+            trigger:
+                action: show
+                field: is_published
+                condition: value[2]
+        unpublish_at:
+            label: Publikovat do
+            span: full
+            type: datepicker
+            trigger:
+                action: show
+                field: is_published
+                condition: value[2]
 
         sidebar_Section:
             label: 'baoweb.articles::lang.articles.sidebar_Section'
@@ -160,6 +179,7 @@ secondaryTabs:
 
         published_at:
             label: 'baoweb.articles::lang.articles.published_at'
+            comment: Pouze pro zobrazení
             span: full
             type: datepicker
 
@@ -201,27 +221,6 @@ secondaryTabs:
             span: full
             type: text
 
-        is_scheduled:
-            label: 'baoweb.articles::lang.articles.is_scheduled'
-            comment: 'baoweb.articles::lang.articles.is_scheduled_desc'
-            span: full
-            type: switch
-        publish_at:
-            label: 'baoweb.articles::lang.articles.publish_at'
-            span: full
-            type: datepicker
-            trigger:
-                action: show
-                field: is_scheduled
-                condition: checked
-        unpublish_at:
-            label: 'baoweb.articles::lang.articles.unpublish_at'
-            span: full
-            type: datepicker
-            trigger:
-                action: show
-                field: is_scheduled
-                condition: checked
 
         is_template:
             label: 'baoweb.articles::lang.articles.is_template'
@@ -231,6 +230,7 @@ secondaryTabs:
 
         language:
             label: 'baoweb.articles::lang.articles.language'
+            comment: Toto pole bude nastaveno automaticky po uložení. Jazyk bude detekován pokud pole nadpis, perex nebo adresa obsahují v daném jzyce alespoň jeden znak. Pro zobrazení aktuální hodnoty je pořeba znovu načíst stránku.
             type: dropdown
             disabled: true
             options:

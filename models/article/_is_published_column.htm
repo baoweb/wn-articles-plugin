@@ -1,1 +1,4 @@
-<i class="oc-icon-circle" style="color: <?php echo ($record->is_published) ? 'green' : 'red'; ?>"></i>
+<i class="oc-icon-circle" style="color: <?php echo ($record->isPublished()) ? 'green' : 'red'; ?>"></i>
+<?php if ($record->is_published == 2): ?>
+<i class="oc-icon-clock-o"></i>
+<?php endif; ?>

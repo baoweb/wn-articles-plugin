@@ -27,8 +27,8 @@ scopes:
         type: switch
         default: 0
         conditions:
-            - is_published <> true
-            - is_published = true
+            - is_published = false
+            - is_published >= 1
 
     has_no_category:
         label: Nemá kategorii
