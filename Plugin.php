@@ -6,6 +6,7 @@ use Baoweb\Articles\Classes\LayoutRegistry;
 use Baoweb\Articles\Classes\LayoutTemplates\AdvancedLayoutClass;
 use Baoweb\Articles\Classes\LayoutTemplates\BasicLayoutClass;
 use Baoweb\Articles\Classes\LayoutTemplates\HtmlLayoutClass;
+use Baoweb\Articles\Classes\LayoutTemplates\LayoutTemplateInterface;
 use Baoweb\Articles\Classes\LayoutTemplates\MultiLanguageLayoutClass;
 use Baoweb\Articles\Components\Article;
 use Baoweb\Articles\Components\ArticleList;
@@ -57,6 +58,55 @@ class Plugin extends PluginBase
         });
 
         /** Adding function that allows to check access to an article */
+
+
+        \Event::listen('offline.sitesearch.query', function ($query) {
+
+            // The controller is used to generate page URLs.
+            $controller = \Cms\Classes\Controller::getController() ?? new \Cms\Classes\Controller();
+
+            // Search your plugin's contents
+            $items = \Baoweb\Articles\Models\Article
+                ::where('title', 'like', "%${query}%")
+                ->orWhere('content', 'like', "%${query}%")
+                ->get();
+
+            // Now build a results array
+            $results = $items->map(function ($item) use ($query, $controller) {
+
+                // If the query is found in the title, set a relevance of 2
+                $relevance = mb_stripos($item->title, $query) !== false ? 2 : 1;
+
+                // Optional: Add an age penalty to older results. This makes sure that
+                // newer results are listed first.
+                // if ($relevance > 1 && $item->created_at) {
+                //    $ageInDays = $item->created_at->diffInDays(\Illuminate\Support\Carbon::now());
+                //    $relevance -= \OFFLINE\SiteSearch\Classes\Providers\ResultsProvider::agePenaltyForDays($ageInDays);
+                // }
+
+                /* @var $layoutClass LayoutTemplateInterface */
+                $layoutClass = App::make('baoweb.articles.layoutTemplates')->getLayoutInstance($item->template);
+
+                $content = $layoutClass->getRenderedArticle($item);
+
+                return [
+                    'title'     => $item->title,
+                    'text'      => $content,
+                    'url'       => $controller->pageUrl('article', ['slug' => $item->generateSlug()]),
+                    // 'thumb'     => optional($item->images)->first(), // Instance of System\Models\File
+                    'relevance' => $relevance, // higher relevance results in a higher
+                    // position in the results listing
+                    // 'meta' => 'data',       // optional, any other information you want
+                    // to associate with this result
+                    // 'model' => $item,       // optional, pass along the original model
+                ];
+            });
+
+            return [
+                'provider' => __('stránka'), // The badge to display for this result
+                'results'  => $results,
+            ];
+        });
     }
 
     public function registerComponents()
