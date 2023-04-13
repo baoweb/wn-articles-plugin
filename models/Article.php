@@ -385,4 +385,9 @@ class Article extends Model
         return $query->doesntHave('categories');
     }
 
+    public function scopeShowInLists($query)
+    {
+        return $query->where('hide_in_lists', false);
+    }
+
 }

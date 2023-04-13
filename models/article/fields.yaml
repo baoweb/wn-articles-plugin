@@ -125,6 +125,7 @@ tabs:
             type: attachmentlinks
             span: full
             dependsOn: attachments
+
         #attachment_links:
         #    label: "Odkaz na soubory"
         #    commentAbove: "Pokud chcete odkázat na připojené soubory z jiné části webu, zde si můžete odkazy zkopírovat"
@@ -138,6 +139,20 @@ tabs:
             label: Schovat hlavičku článku (autor a datum)
             span: full
             type: switch
+            tab: Další nastavení
+
+        hide_in_lists:
+            label: Nezobrazeovat ve výpisech
+            span: full
+            type: switch
+            tab: Další nastavení
+
+        settings[primary_category]:
+            label: Primární kategorie (pro zvýraznění menu)
+            type: dropdown
+            emptyOption: '- vyberte kategorii -'
+            options: \Baoweb\Articles\Models\Category::getCategoryOptionsStatic
+            span: left
             tab: Další nastavení
 
 secondaryTabs:

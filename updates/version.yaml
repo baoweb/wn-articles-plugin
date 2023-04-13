@@ -33,3 +33,6 @@
 1.0.12:
     - 'Updated table baoweb_articles_articles'
     - builder_table_update_baoweb_articles_articles_4.php
+1.0.13:
+    - 'Updated table baoweb_articles_articles'
+    - builder_table_update_baoweb_articles_articles_5.php

@@ -16,8 +16,8 @@ class ArticleListSimple extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Simple article list',
-            'description' => ''
+            'name'        => 'Box - výpis článků',
+            'description' => 'Výpis článků na hlavní straně'
         ];
     }
 
@@ -33,7 +33,7 @@ class ArticleListSimple extends ComponentBase
             ],
             'limit' => [
                 'title'   => 'Limit',
-                'type'    => 'number',
+                'type'    => 'string',
                 'default' => 3,
             ]
         ];
@@ -50,6 +50,7 @@ class ArticleListSimple extends ComponentBase
         $this->articles = $this->category->articles()
             ->with('author')
             ->published()
+            ->showInLists()
             ->where('category_id', $this->category->id)
             ->limit($this->properties['limit'])
             ->orderBy('published_at', 'desc')

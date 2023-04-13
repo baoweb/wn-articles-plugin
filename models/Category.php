@@ -115,4 +115,20 @@ class Category extends Model
     {
         return $query->where('is_active', false);
     }
+
+    public static function getCategoryOptionsStatic()
+    {
+        $categories = Category::select('id', 'name', 'internal_name')
+            ->active()
+            ->orderBy('internal_name')
+            ->get();
+
+        $output = [];
+
+        foreach($categories as $category) {
+            $output[$category->id] = $category->label;
+        }
+
+        return $output;
+    }
 }
