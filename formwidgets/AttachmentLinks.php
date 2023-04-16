@@ -35,6 +35,13 @@ class AttachmentLinks extends FormWidgetBase
     public function prepareVars()
     {
         $this->vars['model'] = $this->model;
+        $this->vars['attachments'] = $this->model->{$this->config->relation};
+
+        if($this->config->relation == 'galleryPhotos') {
+            $this->vars['type'] = 'gallery';
+        } else {
+            $this->vars['type'] = 'fiels';
+        }
     }
 
     /**

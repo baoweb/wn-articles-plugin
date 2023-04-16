@@ -3,7 +3,9 @@
 
 use Baoweb\Articles\Models\Article;
 use Baoweb\Articles\Models\Category;
+use Illuminate\Support\Facades\Lang;
 use Winter\Storm\Support\Facades\Twig;
+use Winter\Translate\Classes\Translator;
 
 class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInterface {
 
@@ -48,6 +50,10 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
 
         if($lang[0] == 'en') {
             $content = $article->_content_en;
+
+            if($content == []) {
+                $content = $article->content;
+            }
         } else {
             $content = $article->content;
         }
@@ -71,6 +77,12 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
                 foreach($article->attachments as $attachment) {
                     $attachment->file_size_for_humans = round($attachment->file_size / 10000) / 100 . ' Mb';
                 }
+
+                if($lang[0] == 'en') {
+                    $vars['title'] = 'Attached documents:';
+                } else {
+                    $vars['title'] = 'Připojené dokumenty:';
+                }
             }
 
             // group
@@ -84,7 +96,8 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
 
                 $articles = $category->articles()
                     ->with('author')
-                    ->where('is_published', 1)
+                    ->published()
+                    ->showInLists()
                     ->orderBy('published_at', 'desc')
                     ->limit($limit)
                     ->get();

@@ -103,6 +103,14 @@ tabs:
                 sharpen: 0
                 interlace: false
                 extension: auto
+        galleryPhotos_links:
+            label: "Odkaz na obrázky"
+            commentAbove: "Pokud chcete odkázat na připojené obrázky z jiné části webu, zde si můžete odkazy zkopírovat"
+            tab: 'baoweb.articles::lang.articles.tabs.gallery'
+            type: attachmentlinks
+            relation: galleryPhotos
+            span: full
+            dependsOn: galleryPhotos
 
         attachments_section:
             tab: 'baoweb.articles::lang.articles.tabs.attachments'
@@ -124,6 +132,7 @@ tabs:
             tab: 'baoweb.articles::lang.articles.tabs.attachments'
             type: attachmentlinks
             span: full
+            relation: attachments
             dependsOn: attachments
 
         #attachment_links:

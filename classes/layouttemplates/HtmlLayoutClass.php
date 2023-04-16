@@ -47,6 +47,10 @@ class HtmlLayoutClass extends BaseLayoutClass implements LayoutTemplateInterface
 
         if($lang[0] == 'en') {
             $content = $article->_content_en;
+
+            if($content == []) {
+                $content = $article->content;
+            }
         } else {
             $content = $article->content;
         }
@@ -68,6 +72,12 @@ class HtmlLayoutClass extends BaseLayoutClass implements LayoutTemplateInterface
             if ($group['_group'] == 'documents') {
                 foreach($article->attachments as $attachment) {
                     $attachment->file_size_for_humans = round($attachment->file_size / 10000) / 100 . ' Mb';
+                }
+
+                if($lang[0] == 'en') {
+                    $vars['title'] = 'Attached documents:';
+                } else {
+                    $vars['title'] = 'Připojené dokumenty:';
                 }
             }
 
