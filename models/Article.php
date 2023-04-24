@@ -390,4 +390,28 @@ class Article extends Model
         return $query->where('hide_in_lists', false);
     }
 
+    public function scopeHasAccess($query)
+    {
+        $user = BackendAuth::getUser();
+
+        if($user->hasAccess(['edit-all-articles'])) {
+            return $query;
+        }
+
+        if($user->hasAccess(['edit-selected-articles']) ) {
+            $categories = DB::table('baoweb_articles_users_categories')
+                ->where('user_id', $user->id)
+                ->pluck('category_id');
+
+            $query->whereHas('categories', function ($query) use ($categories) {
+                $query->whereIn('baoweb_articles_categories.id', $categories);
+            });
+
+            return $query;
+        }
+
+        // fallback if no other option
+        return $query->where('created_by', $user->id);
+    }
+
 }

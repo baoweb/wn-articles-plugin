@@ -1,11 +1,13 @@
 <?php namespace Baoweb\Articles\Components;
 
 use App;
+use Backend\Facades\BackendAuth;
 use Baoweb\Articles\Classes\LayoutTemplates\LayoutTemplateInterface;
 use Cms\Classes\ComponentBase;
 use \Baoweb\Articles\Models\Article as ArticleModel;
 use Illuminate\Support\Facades\Response;
 use View;
+use Winter\Storm\Support\Facades\DB;
 use Winter\Storm\Support\Str;
 
 class Article extends ComponentBase
@@ -56,6 +58,29 @@ class Article extends ComponentBase
 
         $this->article = $articleQuery->first();
 
+        // test if user is in backend and has access
+        if(!$this->article && $user = BackendAuth::user()) {
+
+            $articleQuery = ArticleModel::with(['attachments'])
+                ->hasAccess();
+
+            // load article again
+            if(config('baoweb.articles::id_in_slug')) {
+
+                $id = (int) Str::before($slug, '-');
+
+                if(!$id) {
+                    return $this->controller->run('404');
+                }
+
+                $articleQuery->where(['id' => $id]);
+            } else {
+                $articleQuery->where(['slug' => $slug]);
+            }
+
+            $this->article = $articleQuery->first();
+        }
+
         if(!$this->article) {
             return $this->controller->run('404');
         }
@@ -82,4 +107,5 @@ class Article extends ComponentBase
         // incrementing
         $this->article->incrementCounter();
     }
+
 }
