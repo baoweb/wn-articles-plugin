@@ -168,8 +168,15 @@ class Article extends Model
                     ->where('user_id', $user->id)
                     ->pluck('category_id');
 
+                /*
                 $builder->whereHas('categories', function ($query) use ($categories) {
                     $query->whereIn('baoweb_articles_categories.id', $categories);
+                });
+                */
+                $builder->where(function($query) use ($user, $categories) {
+                    $query->whereHas('categories', function ($query) use ($categories) {
+                        $query->whereIn('baoweb_articles_categories.id', $categories);
+                    })->orWhere('created_by', $user->id);
                 });
 
                 return;
@@ -403,8 +410,16 @@ class Article extends Model
                 ->where('user_id', $user->id)
                 ->pluck('category_id');
 
+            /*
             $query->whereHas('categories', function ($query) use ($categories) {
                 $query->whereIn('baoweb_articles_categories.id', $categories);
+            });
+            */
+
+            $query->where(function($query) use ($user, $categories) {
+                $query->whereHas('categories', function ($query) use ($categories) {
+                    $query->whereIn('baoweb_articles_categories.id', $categories);
+                })->orWhere('created_by', $user->id);
             });
 
             return $query;
