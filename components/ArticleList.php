@@ -46,6 +46,7 @@ class ArticleList extends ComponentBase
             ->showInLists()
             ->where('category_id', $this->properties['category'])
             ->where('is_template', false)
+            ->orderBy('is_featured', 'desc')
             ->orderBy('published_at', 'desc')
             ->paginate(15);
     }

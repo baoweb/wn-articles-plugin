@@ -53,6 +53,7 @@ class ArticleListSimple extends ComponentBase
             ->showInLists()
             ->where('category_id', $this->category->id)
             ->limit($this->properties['limit'])
+            ->orderBy('is_featured', 'desc')
             ->orderBy('published_at', 'desc')
             ->get();
     }
