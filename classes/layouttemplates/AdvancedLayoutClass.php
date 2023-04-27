@@ -98,6 +98,7 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
                     ->with('author')
                     ->published()
                     ->showInLists()
+                    ->orderBy('is_featured', 'desc')
                     ->orderBy('published_at', 'desc')
                     ->limit($limit)
                     ->get();
