@@ -33,15 +33,15 @@ class BasicLayoutClass implements LayoutTemplateInterface {
         $lang = explode('/', request()->path());
 
         if($lang[0] == 'en') {
-            $content = $article->_content_en;
+            $content = $article->_content_en['content'] ?? '' ;
 
-            if($content == []) {
-                $content = $article->content;
+            if($content == '') {
+                $content = $article->content['content'] ?? '';
             }
         } else {
-            $content = $article->content;
+            $content = $article->content['content'] ?? '';
         }
 
-        return $content['content'];
+        return $content;
     }
 }
