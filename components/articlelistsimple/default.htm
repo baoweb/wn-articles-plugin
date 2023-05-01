@@ -5,7 +5,7 @@
         </div>
         {% for article in __SELF__.articles %}
         <a href="{{ 'article' | page({slug: article.generateSlug() }) }}" class="block px-4 py-3 hover:bg-gray-50">
-            <div class="font-bold">
+            <div class="font-semibold">
                 {{ article.title }}
             </div>
             <div class="flex gap-8 text-sm text-gray-400 mt-1">
