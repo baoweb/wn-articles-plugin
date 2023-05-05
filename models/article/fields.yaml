@@ -21,7 +21,7 @@ fields:
         label: 'baoweb.articles::lang.articles.template'
         span: auto
         type: dropdown
-        default: published
+        default: advanced
         emptyOption:  'baoweb.articles::lang.articles.template_select'
         required: true
     long_title:
@@ -151,7 +151,7 @@ tabs:
             tab: Další nastavení
 
         hide_in_lists:
-            label: Nezobrazeovat ve výpisech
+            label: Nezobrazovat ve výpisech
             span: full
             type: switch
             tab: Další nastavení
@@ -178,7 +178,7 @@ secondaryTabs:
             options:
                 0: nepublikováno
                 1: publikováno
-                2: publikováno pouze u termínu
+                2: zvolit čas publikace
 
         publish_at:
             label: Publikovat od
@@ -254,7 +254,7 @@ secondaryTabs:
 
         language:
             label: 'baoweb.articles::lang.articles.language'
-            comment: Toto pole bude nastaveno automaticky po uložení. Jazyk bude detekován pokud pole nadpis, perex nebo adresa obsahují v daném jzyce alespoň jeden znak. Pro zobrazení aktuální hodnoty je pořeba znovu načíst stránku.
+            comment: Toto pole bude nastaveno automaticky po uložení. Jazyk bude detekován pokud pole nadpis, perex nebo adresa obsahují v daném jazyce alespoň jeden znak. Pro zobrazení aktuální hodnoty je pořeba znovu načíst stránku.
             type: dropdown
             disabled: true
             options:

@@ -11,3 +11,6 @@ toolbar:
         prompt: 'backend::lang.list.search_prompt'
 recordUrl: 'baoweb/articles/articles/update/:id'
 filter: config_filter.yaml
+defaultSort:
+    column: id
+    direction: desc
