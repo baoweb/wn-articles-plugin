@@ -46,6 +46,7 @@ navigation:
         label: 'baoweb.articles::lang.plugin.name'
         url: baoweb/articles/articles
         icon: icon-edit
+        order: 50
         permissions:
             - access-articles
         sideMenu:
