@@ -73,6 +73,7 @@ tabs:
         primaryCategory:
             label: Primární kategorie
             span: right
+            emptyOption: '- vyberte kategorii -'
             nameFrom: name
             type: relation
             tab: 'baoweb.articles::lang.articles.tabs.categories'
