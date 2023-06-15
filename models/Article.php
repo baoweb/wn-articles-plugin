@@ -49,6 +49,10 @@ class Article extends Model
         'author' => [
             User::class,
             'key' => 'created_by'
+        ],
+        'primaryCategory' => [
+            Category::class,
+            'key' => 'primary_category'
         ]
     ];
 

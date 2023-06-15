@@ -70,6 +70,19 @@ tabs:
             span: left
             nameFrom: internal_name
 
+        primaryCategory:
+            label: Primární kategorie
+            span: right
+            nameFrom: name
+            type: relation
+            tab: 'baoweb.articles::lang.articles.tabs.categories'
+
+        is_news_item:
+            label: Zobrazit v boxu novinek na hlavní straně
+            span: right
+            type: switch
+            tab: 'baoweb.articles::lang.articles.tabs.categories'
+
         # annotation:
         #    tab: Annotation
         #    label: Annotation
