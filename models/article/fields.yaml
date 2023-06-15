@@ -70,20 +70,6 @@ tabs:
             span: left
             nameFrom: internal_name
 
-        primaryCategory:
-            label: Primární kategorie
-            span: right
-            emptyOption: '- vyberte kategorii -'
-            nameFrom: name
-            type: relation
-            tab: 'baoweb.articles::lang.articles.tabs.categories'
-
-        is_news_item:
-            label: Zobrazit v boxu novinek na hlavní straně
-            span: right
-            type: switch
-            tab: 'baoweb.articles::lang.articles.tabs.categories'
-
         # annotation:
         #    tab: Annotation
         #    label: Annotation
@@ -240,6 +226,11 @@ secondaryTabs:
         is_featured:
             label: 'baoweb.articles::lang.articles.is_featured'
             comment: 'baoweb.articles::lang.articles.is_featured_desc'
+            span: full
+            type: switch
+        is_news_item:
+            label: Novinka
+            comment: Zobrazit v boxu novinek na hlavní straně
             span: full
             type: switch
         has_long_title:
