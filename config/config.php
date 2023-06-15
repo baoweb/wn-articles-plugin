@@ -18,5 +18,7 @@ return [
 
     'datetime_format' => 'j. n. Y G:i',
 
+    'time_format' => 'G:i',
+
     'id_in_slug' => true,
 ];

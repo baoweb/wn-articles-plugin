@@ -82,6 +82,20 @@ class Article extends ComponentBase
         }
 
         if(!$this->article) {
+            if(config('baoweb.articles::id_in_slug')) {
+
+                $id = (int) Str::before($slug, '-');
+
+                $articleTest = ArticleModel::where('id', $id)->exists();
+            } else {
+                $articleTest = ArticleModel::where(['slug' => $slug])->exists();
+            }
+
+           // check if the document exists
+           if($articleTest) {
+               return $this->controller->run('410');
+           }
+
             return $this->controller->run('404');
         }
 
