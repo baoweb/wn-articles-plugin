@@ -12,6 +12,7 @@ use Baoweb\Articles\Components\Article;
 use Baoweb\Articles\Components\ArticleList;
 use Baoweb\Articles\Components\ArticleListCompact;
 use Baoweb\Articles\Components\ArticleListSimple;
+use Baoweb\Articles\Components\ArticleListSimple2;
 use Baoweb\Articles\FormWidgets\AttachmentLinks;
 use Baoweb\Articles\Models\Category;
 use System\Classes\PluginBase;
@@ -114,6 +115,7 @@ class Plugin extends PluginBase
         return [
             Article::class => 'article',
             ArticleListSimple::class => 'articleListSimple',
+            ArticleListSimple2::class => 'articleListSimple2',
             ArticleList::class => 'articleList',
             ArticleListCompact::class => 'articleListCompact',
         ];
