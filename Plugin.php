@@ -11,6 +11,7 @@ use Baoweb\Articles\Classes\LayoutTemplates\MultiLanguageLayoutClass;
 use Baoweb\Articles\Components\Article;
 use Baoweb\Articles\Components\ArticleList;
 use Baoweb\Articles\Components\ArticleListCompact;
+use Baoweb\Articles\Components\ArticleListFromHomepage;
 use Baoweb\Articles\Components\ArticleListSimple;
 use Baoweb\Articles\Components\ArticleListSimple2;
 use Baoweb\Articles\FormWidgets\AttachmentLinks;
@@ -80,10 +81,10 @@ class Plugin extends PluginBase
 
                 // Optional: Add an age penalty to older results. This makes sure that
                 // newer results are listed first.
-                // if ($relevance > 1 && $item->created_at) {
-                //    $ageInDays = $item->created_at->diffInDays(\Illuminate\Support\Carbon::now());
-                //    $relevance -= \OFFLINE\SiteSearch\Classes\Providers\ResultsProvider::agePenaltyForDays($ageInDays);
-                // }
+                if ($relevance > 1 && $item->created_at) {
+                   $ageInDays = $item->created_at->diffInDays(\Illuminate\Support\Carbon::now());
+                   $relevance -= \OFFLINE\SiteSearch\Classes\Providers\ResultsProvider::agePenaltyForDays($ageInDays);
+                }
 
                 /* @var $layoutClass LayoutTemplateInterface */
                 $layoutClass = App::make('baoweb.articles.layoutTemplates')->getLayoutInstance($item->template);
@@ -118,6 +119,7 @@ class Plugin extends PluginBase
             ArticleListSimple2::class => 'articleListSimple2',
             ArticleList::class => 'articleList',
             ArticleListCompact::class => 'articleListCompact',
+            ArticleListFromHomepage::class => 'articleListFromHomepage',
         ];
     }
 
