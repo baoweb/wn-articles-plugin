@@ -35,3 +35,11 @@ scopes:
         type: checkbox
         default: false
         scope: hasNoCategory
+
+    is_news_item:
+        label: Novinka
+        type: switch
+        default: 0
+        conditions:
+            - is_news_item = false
+            - is_news_item >= 1

@@ -18,11 +18,11 @@ fields:
     #    customTags: false
     #    mode: relation
     template@create:
-        label: 'baoweb.articles::lang.articles.template'
+        label: Uspořádání článku
         span: auto
         type: dropdown
         default: advanced
-        emptyOption:  'baoweb.articles::lang.articles.template_select'
+        emptyOption:  '- vyberte uspořádání článku -'
         required: true
     long_title:
         label: 'baoweb.articles::lang.articles.long_title'
@@ -207,30 +207,30 @@ secondaryTabs:
             span: full
             type: datepicker
 
-        coverImage:
-            label: 'baoweb.articles::lang.articles.coverImage'
-            type: fileupload
-            mode: image
-            imageHeight: 150
-            imageWidth: 150
-            thumbOptions:
-                mode: crop
-                offset:
-                    - 0
-                    - 0
-                quality: 90
-                sharpen: 0
-                interlace: false
-                extension: auto
+        #coverImage:
+        #    label: 'baoweb.articles::lang.articles.coverImage'
+        #    type: fileupload
+        #    mode: image
+        #    imageHeight: 150
+        #    imageWidth: 150
+        #    thumbOptions:
+        #        mode: crop
+        #        offset:
+        #            - 0
+        #            - 0
+        #        quality: 90
+        #        sharpen: 0
+        #        interlace: false
+        #        extension: auto
 
+        is_news_item:
+            label: Novinka
+            comment: Zobrazit ve velkém boxu Novinky na hlavní straně
+            span: full
+            type: switch
         is_featured:
             label: 'baoweb.articles::lang.articles.is_featured'
             comment: 'baoweb.articles::lang.articles.is_featured_desc'
-            span: full
-            type: switch
-        is_news_item:
-            label: Novinka
-            comment: Zobrazit v boxu novinek na hlavní straně
             span: full
             type: switch
         has_long_title:
@@ -268,7 +268,7 @@ secondaryTabs:
                 both: Oba jazyky
 
         template@update:
-            label: 'baoweb.articles::lang.articles.template'
+            label: Uspořádání článku
             span: full
             type: dropdown
             default: published

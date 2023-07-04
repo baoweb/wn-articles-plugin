@@ -37,24 +37,12 @@ class ArticleListSimple2 extends ComponentBase
 
     public function init()
     {
-        $this->category = Category::find($this->properties['category']);
-
-        if(!$this->category) {
-            return [];
-        }
-
-        $this->articles = $this->category->articles()
-            ->with('author')
+        $this->articles = Article::with('author')
             ->published()
             ->where('is_news_item', true)
             ->limit($this->properties['limit'])
             ->orderBy('is_featured', 'desc')
             ->orderBy('published_at', 'desc')
             ->get();
-    }
-
-    public function getCategoryOptions()
-    {
-        return Category::pluck('name', 'id')->toArray();
     }
 }

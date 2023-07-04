@@ -26,6 +26,11 @@
                     </div>
                 </div>
             </div>
+            {% if __SELF__.annotation %}
+            <div class="mt-2 text-sm">
+                {{ article.getAnnotation() | raw }}
+            </div>
+            {% endif %}
         </a>
         {% endfor %}
     </div>

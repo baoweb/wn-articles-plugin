@@ -10,6 +10,8 @@ class ArticleListSimple extends ComponentBase
 
     public $category;
 
+    public $annotation;
+
     /**
      * Gets the details for the component
      */
@@ -35,6 +37,11 @@ class ArticleListSimple extends ComponentBase
                 'title'   => 'Limit',
                 'type'    => 'string',
                 'default' => 3,
+            ],
+            'annotation' => [
+                'title'   => 'Anotace',
+                'type'    => 'number',
+                'default' => 0,
             ]
         ];
     }
@@ -42,6 +49,8 @@ class ArticleListSimple extends ComponentBase
     public function init()
     {
         $this->category = Category::find($this->properties['category']);
+
+        $this->annotation = Category::find($this->properties['annotation']);
 
         if(!$this->category) {
             return [];

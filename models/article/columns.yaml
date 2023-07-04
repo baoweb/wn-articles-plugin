@@ -22,6 +22,11 @@ columns:
         path: ~/plugins/baoweb/articles/models/article/_is_published_column.htm
         width: 200px
         sortable: false
+    is_news_item:
+        label: Novinka
+        type: switch
+        width: 200px
+        sortable: true
     published_at:
         label: 'baoweb.articles::lang.articles.published_at'
         type: datetime
