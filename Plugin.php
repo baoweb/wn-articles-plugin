@@ -68,9 +68,11 @@ class Plugin extends PluginBase
             $controller = \Cms\Classes\Controller::getController() ?? new \Cms\Classes\Controller();
 
             // Search your plugin's contents
-            $items = \Baoweb\Articles\Models\Article
-                ::where('title', 'like', "%${query}%")
-                ->orWhere('content', 'like', "%${query}%")
+            $items = \Baoweb\Articles\Models\Article::query()
+                ->where(function($q) use ($query){
+                    $q->where('title', 'like', "%${query}%")
+                        ->orWhere('content', 'like', "%${query}%");
+                })->published()
                 ->get();
 
             // Now build a results array
