@@ -381,13 +381,13 @@ class Article extends Model
         return $query->where('is_published', 1)
             ->orWhere(function ($query) {
                 $query->where('is_published', 2)
-                    ->whereTime('publish_at', '<=', Carbon::now() )
+                    ->where('publish_at', '<=', Carbon::now()->toDateTimeString() )
                     ->whereNull('unpublish_at');
             })
             ->orWhere(function ($query) {
                 $query->where('is_published', 2)
-                    ->whereTime('publish_at', '<=', Carbon::now() )
-                    ->whereTime('unpublish_at', '>=', Carbon::now() );
+                    ->where('publish_at', '<=', Carbon::now()->toDateTimeString() )
+                    ->where('unpublish_at', '>=',   Carbon::now()->toDateTimeString() );
             });
     }
 
