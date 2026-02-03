@@ -1,8 +1,14 @@
 <div class="flex flex-col rounded-md bg-white shadow-xl border border-main-300">
     <div class="relative flex-1 pt-8 pb-4 px-2">
+        {% if __SELF__.moreArticle %}
+        <a href="{{ 'article' | page({slug: __SELF__.moreArticle.generateSlug() }) }}" class="ml-4 tracking-wide absolute top-0 inline-block -translate-y-1/2 transform rounded-md bg-main-600 py-1 px-4 shadow-lg text-white hover:bg-main-700">
+            {{ __SELF__.category.name }}
+        </a>
+        {% else %}
         <div class="ml-4 tracking-wide absolute top-0 inline-block -translate-y-1/2 transform rounded-md bg-main-600 py-1 px-4 shadow-lg text-white">
             {{ __SELF__.category.name }}
         </div>
+        {% endif %}
         {% for article in __SELF__.articles %}
         <a href="{{ 'article' | page({slug: article.generateSlug() }) }}" class="block px-4 py-3 hover:bg-gray-50">
             <div class="font-semibold">
@@ -35,7 +41,11 @@
         {% endfor %}
     </div>
 
+    {% if __SELF__.moreArticle %}
+    <a href="{{ 'article' | page({slug: __SELF__.moreArticle.generateSlug() }) }}"
+       class="bg-main-50 p-3 md:px-8 text-right hover:bg-main-100 block text-main text-right font-medium text-main hover:text-main-700 rounded-b-md">{{ 'další' | _ }}<span aria-hidden="true"> &rarr;</span></a>
+    {% else %}
     <a href="{{ 'category' | page({slug: __SELF__.category.id }) }}"
-       class="bg-main-50 p-3 md:px-8 text-right hover:bg-main-100 block text-main text-right font-medium text-main hover:text-main-700 rounded-b-md">{{ 'další' | _ }}<span aria-hidden="true"
-    > &rarr;</span></a>
+       class="bg-main-50 p-3 md:px-8 text-right hover:bg-main-100 block text-main text-right font-medium text-main hover:text-main-700 rounded-b-md">{{ 'další' | _ }}<span aria-hidden="true"> &rarr;</span></a>
+    {% endif %}
 </div>

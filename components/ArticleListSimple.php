@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Baoweb\Articles\Models\Article;
 use Baoweb\Articles\Models\Category;
+use Winter\Storm\Support\Str;
 
 class ArticleListSimple extends ComponentBase
 {
@@ -11,6 +12,8 @@ class ArticleListSimple extends ComponentBase
     public $category;
 
     public $annotation;
+
+    public $moreArticle;
 
     /**
      * Gets the details for the component
@@ -42,6 +45,11 @@ class ArticleListSimple extends ComponentBase
                 'title'   => 'Anotace',
                 'type'    => 'number',
                 'default' => 0,
+            ],
+            'articleSlug' => [
+                'title'   => 'Article slug for "more" link',
+                'type'    => 'string',
+                'default' => '',
             ]
         ];
     }
@@ -65,6 +73,20 @@ class ArticleListSimple extends ComponentBase
             ->orderBy('is_featured', 'desc')
             ->orderBy('published_at', 'desc')
             ->get();
+
+        if (!empty($this->properties['articleSlug'])) {
+            $slug = $this->properties['articleSlug'];
+            $query = Article::published();
+
+            if (config('baoweb.articles::id_in_slug')) {
+                $id = (int) Str::before($slug, '-');
+                $query->where('id', $id);
+            } else {
+                $query->where('slug', $slug);
+            }
+
+            $this->moreArticle = $query->first();
+        }
     }
 
     public function getCategoryOptions()
