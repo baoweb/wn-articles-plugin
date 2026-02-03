@@ -109,6 +109,43 @@ class AdvancedLayoutClass extends BaseLayoutClass implements LayoutTemplateInter
                 $vars['boxTitle'] = $group['box_title'] ?? '';
             }
 
+            // category_tabs block
+            if ($group['_group'] == 'category_tabs') {
+                $tabsData = [];
+
+                foreach ($group['tabs'] ?? [] as $index => $tab) {
+                    $categoryId = $tab['category_listing'] ?? null;
+
+                    if (!$categoryId) {
+                        continue;
+                    }
+
+                    $category = Category::find($categoryId);
+
+                    if (!$category) {
+                        continue;
+                    }
+
+                    $articles = $category->articles()
+                        ->with('author')
+                        ->published()
+                        ->showInLists()
+                        ->orderBy('is_featured', 'desc')
+                        ->orderBy('published_at', 'desc')
+                        ->get();
+
+                    $tabsData[] = [
+                        'id' => 'tab-' . $index,
+                        'title' => $tab['tab_title'] ?? $category->name,
+                        'listTitle' => $tab['list_title'] ?? '',
+                        'category' => $category,
+                        'articles' => $articles,
+                    ];
+                }
+
+                $vars['tabsData'] = $tabsData;
+            }
+
             $vars['article'] = $article;
 
             $parsedTemplate = Twig::parse($template, $vars);

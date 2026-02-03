@@ -160,3 +160,28 @@ project_header_3:
             span: full
             type: richeditor
             size: large
+
+category_tabs:
+    name: Záložky s kategoriemi
+    description: Tabs with article lists from multiple categories
+    icon: icon-folder-o
+    fields:
+        tabs:
+            label: Záložky
+            type: repeater
+            prompt: Přidat záložku
+            form:
+                fields:
+                    tab_title:
+                        label: Název záložky
+                        type: text
+                        span: auto
+                    category_listing:
+                        label: Kategorie
+                        type: dropdown
+                        span: auto
+                    list_title:
+                        label: Nadpis seznamu
+                        comment: Volitelný nadpis nad seznamem článků (např. "Novinky")
+                        type: text
+                        span: auto

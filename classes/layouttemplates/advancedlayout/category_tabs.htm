@@ -1,0 +1,80 @@
+{% if tabsData | length > 0 %}
+<div class="block_{{ _group }} mt-10" x-data="{ activeTab: 0 }">
+    {# Tab buttons - hidden on mobile #}
+    <div class="hidden md:flex flex-wrap gap-x-1 border-b-4 border-gray-200">
+        {% for tab in tabsData %}
+        <button
+            @click="activeTab = {{ loop.index0 }}"
+            :class="activeTab === {{ loop.index0 }} ? 'bg-main-600 text-white border-b-4 border-main-600 -mb-[4px]' : 'bg-gray-100 text-gray-500 hover:text-gray-700 hover:bg-gray-200'"
+            class="py-2 px-6 font-medium rounded-t-lg transition-colors"
+        >
+            {{ tab.title }}
+        </button>
+        {% endfor %}
+    </div>
+
+    {# Tab panels - desktop: show active only, mobile: show all #}
+    <div class="bg-white">
+        {% for tab in tabsData %}
+        <div x-show="activeTab === {{ loop.index0 }}" class="hidden md:block py-6">
+            <h3 class="text-xl font-bold text-main mb-2">{{ tab.category.name }}</h3>
+
+            {% if tab.category.text %}
+            <div class="text-gray-600 mb-4">
+                {{ tab.category.text | raw }}
+            </div>
+            {% endif %}
+
+            {% if tab.listTitle %}
+            <div class="text-lg font-semibold text-main-600 mb-3 border-b border-main-200 pb-2">{{ tab.listTitle }}</div>
+            {% endif %}
+
+            {% if tab.articles | length > 0 %}
+            <div class="flex flex-col">
+                {% for article in tab.articles %}
+                <a href="{{ article.generateSlug() }}"
+                   class="block py-2 hover:bg-gray-50 hover:text-secondary-500 border-b border-gray-100 last:border-b-0">
+                    {{ article.title }}
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-500 italic">Žádné články v této kategorii.</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        {# Mobile: show all categories stacked #}
+        <div class="md:hidden divide-y divide-main-200">
+            {% for tab in tabsData %}
+            <div class="py-4">
+                <h3 class="text-lg font-bold text-main mb-2">{{ tab.category.name }}</h3>
+
+                {% if tab.category.text %}
+                <div class="text-gray-600 mb-3 text-sm">
+                    {{ tab.category.text | raw }}
+                </div>
+                {% endif %}
+
+                {% if tab.listTitle %}
+                <h4 class="text-base font-semibold text-main-500 mb-2 border-b border-main-200 pb-1">{{ tab.listTitle }}</h4>
+                {% endif %}
+
+                {% if tab.articles | length > 0 %}
+                <div class="flex flex-col">
+                    {% for article in tab.articles %}
+                    <a href="{{ article.generateSlug() }}"
+                       class="block py-2 hover:bg-gray-50 hover:text-secondary-500 border-b border-gray-100 last:border-b-0">
+                        {{ article.title }}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-gray-500 italic">Žádné články v této kategorii.</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
