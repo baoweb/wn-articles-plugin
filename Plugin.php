@@ -70,8 +70,8 @@ class Plugin extends PluginBase
             // Search your plugin's contents
             $items = \Baoweb\Articles\Models\Article::query()
                 ->where(function($q) use ($query){
-                    $q->where('title', 'like', "%${query}%")
-                        ->orWhere('content', 'like', "%${query}%");
+                    $q->where('title', 'like', "%{$query}%")
+                        ->orWhere('content', 'like', "%{$query}%");
                 })->published()
                 ->get();
 
