@@ -1,5 +1,5 @@
 {% if tabsData | length > 0 %}
-<div class="block_{{ _group }} mt-10" x-data="{ activeTab: 0 }">
+<div class="block_{{ _group }} mt-10" x-data="{ activeTab: 0, openAccordion: 0 }">
     {# Tab buttons - hidden on mobile #}
     <div class="hidden md:flex flex-wrap gap-x-1 border-b-4 border-gray-200">
         {% for tab in tabsData %}
@@ -44,34 +44,54 @@
         </div>
         {% endfor %}
 
-        {# Mobile: show all categories stacked #}
+        {# Mobile: accordion behavior #}
         <div class="md:hidden divide-y divide-main-200">
             {% for tab in tabsData %}
-            <div class="py-4">
-                <h3 class="text-lg font-bold text-main mb-2">{{ tab.category.name }}</h3>
+            <div>
+                {# Clickable header #}
+                <button
+                    @click="openAccordion = openAccordion === {{ loop.index0 }} ? null : {{ loop.index0 }}"
+                    class="w-full flex items-center justify-between text-left py-3"
+                >
+                    <span class="text-lg font-bold text-main">{{ tab.category.name }}</span>
+                    <svg
+                        :class="openAccordion === {{ loop.index0 }} ? 'rotate-180' : ''"
+                        class="w-5 h-5 text-main-600 transition-transform duration-200 flex-shrink-0"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
 
-                {% if tab.category.text %}
-                <div class="text-gray-600 mb-3 text-sm">
-                    {{ tab.category.text | raw }}
+                {# Collapsible content #}
+                <div
+                    x-show="openAccordion === {{ loop.index0 }}"
+                    x-collapse
+                    class="pb-4"
+                >
+                    {% if tab.category.text %}
+                    <div class="text-gray-600 mb-3 text-sm">
+                        {{ tab.category.text | raw }}
+                    </div>
+                    {% endif %}
+
+                    {% if tab.listTitle %}
+                    <h4 class="text-base font-semibold text-main-500 mb-2 border-b border-main-200 pb-1">{{ tab.listTitle }}</h4>
+                    {% endif %}
+
+                    {% if tab.articles | length > 0 %}
+                    <div class="flex flex-col">
+                        {% for article in tab.articles %}
+                        <a href="{{ article.generateSlug() }}"
+                           class="block py-2 hover:bg-gray-50 hover:text-secondary-500 border-b border-gray-100 last:border-b-0">
+                            {{ article.title }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="text-gray-500 italic">Žádné články v této kategorii.</p>
+                    {% endif %}
                 </div>
-                {% endif %}
-
-                {% if tab.listTitle %}
-                <h4 class="text-base font-semibold text-main-500 mb-2 border-b border-main-200 pb-1">{{ tab.listTitle }}</h4>
-                {% endif %}
-
-                {% if tab.articles | length > 0 %}
-                <div class="flex flex-col">
-                    {% for article in tab.articles %}
-                    <a href="{{ article.generateSlug() }}"
-                       class="block py-2 hover:bg-gray-50 hover:text-secondary-500 border-b border-gray-100 last:border-b-0">
-                        {{ article.title }}
-                    </a>
-                    {% endfor %}
-                </div>
-                {% else %}
-                <p class="text-gray-500 italic">Žádné články v této kategorii.</p>
-                {% endif %}
             </div>
             {% endfor %}
         </div>
